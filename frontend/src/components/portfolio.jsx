@@ -75,7 +75,7 @@ const Portfolio = () => {
                         theme === 'dark' ? 'bg-purple-500' : 'bg-purple-300'
                     }`}></div>
                     <div className="relative z-10 flex justify-between items-center">
-                        <h1 className="text-4xl font-bold">Jane Doe</h1>
+                        <h1 className="text-4xl font-bold">Carlos Perez</h1>
                         <button
                             onClick={toggleTheme}
                             className={`p-2 rounded-full ${
@@ -87,9 +87,9 @@ const Portfolio = () => {
                     </div>
                     <p className="text-xl mt-2 relative z-10">Full Stack Developer | Social Impact Technologist</p>
                     <div className="flex space-x-4 mt-4 relative z-10">
-                        <a href="#" className="text-opacity-60 hover:text-opacity-100 transition-opacity"><Github size={24} /></a>
-                        <a href="#" className="text-opacity-60 hover:text-opacity-100 transition-opacity"><Linkedin size={24} /></a>
-                        <a href="#" className="text-opacity-60 hover:text-opacity-100 transition-opacity"><Mail size={24} /></a>
+                        <a href="#https://github.com//CarlosPerez505" className="text-opacity-60 hover:text-opacity-100 transition-opacity"><Github size={24} /></a>
+                        <a href="#https://linkedin.com/in/carlos-perez-29b9b6274/" className="text-opacity-60 hover:text-opacity-100 transition-opacity"><Linkedin size={24} /></a>
+                        <a href="mailto:cp3develops@gmail.com" className="text-opacity-60 hover:text-opacity-100 transition-opacity"><Mail size={24} /></a>
                     </div>
                 </header>
 
@@ -157,7 +157,7 @@ const Portfolio = () => {
                 </main>
 
                 <footer className="mt-12 text-center text-opacity-60">
-                    <p>&copy; 2024 Jane Doe. All rights reserved.</p>
+                    <p>&copy; 2024 Carlos Perez. All rights reserved.</p>
                 </footer>
             </div>
         </div>
@@ -208,3 +208,4 @@ const ProjectGrid = ({ projects, theme }) => (
 );
 
 export default Portfolio;
+
