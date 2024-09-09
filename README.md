@@ -3,9 +3,9 @@
 Welcome to my portfolio! I'm Carlos Perez, a full-stack developer passionate about building impactful projects and solving real-world problems through technology.
 
 ## 🚀 About Me
-- **Location**: [City, Country]
-- **Education**: [Your Degree, Institution]
-- **Current Role**: [Your Job Title, Company]
+- **Location**: Albuquerque,  New Mexico
+- **Education**: Your Degree, Institution
+- **Current Role**: CTO, Cp3develops
 - **Focus Areas**: Web Development, Machine Learning, Artificial Intelligence
 - **Skills**: JavaScript, React, Node.js, Docker, MySQL, Tailwind CSS
 
@@ -13,7 +13,7 @@ I enjoy tackling challenges in the field of full-stack development and am always
 
 ## 🛠️ Projects
 
-### 1. [The Red Palm Project](https://github.com/yourusername/red-palm-project)
+### 1. The Red Palm Project (https://github.com/carlosperez505/theredpalmproject)
 **Tech Stack**: React, Node.js, Express, MySQL, Tailwind CSS, Mapbox, ChatGPT  
 **Description**: The Red Palm Project is a platform designed to raise awareness of missing Indigenous people in the Southwest. It provides real-time mapping, predictive analytics using AI, and an interactive UI for managing missing persons cases.
 
@@ -59,7 +59,7 @@ I'm continuously expanding my knowledge and skills, and I'm currently focusing o
 
 - **Email**: [Carlosperez505@gmail.com](mailto:Carlosperez505@gmail.com)
 - **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/yourprofile)
-- **Website**: [Your Personal Website or Blog](https://yourwebsite.com)
+- **Website**: 
 
 ## 🌐 Socials
 
