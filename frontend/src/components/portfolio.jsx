@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, Moon, Sun, Code, Monitor, Server, Utensils, Heart } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card.tsx';
+import {Tabs, TabsContent, TabsList, TabsTrigger} from './ui/tabs.tsx'
+import { Badge } from './ui/badge.tsx';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import jsLogo from '@/assets/logos/javascript-color.svg';
+import reactLogo from '@/assets/logos/react.svg';
+import nodeLogo from '@/assets/logos/nodedotjs-color.svg'
+import expressLogo from '@/assets/logos/express-color.svg';
+import tailwindLogo from '@/assets/logos/tailwindcss-color.svg';
+import mySqlLogo from '@/assets/logos/mysql-color.svg'
+
 
 const Portfolio = () => {
     const [theme, setTheme] = useState('dark');
@@ -51,17 +58,27 @@ const Portfolio = () => {
     ];
 
     const skills = [
-        { name: 'JavaScript', value: 90 },
-        { name: 'React', value: 85 },
-        { name: 'Node.js', value: 80 },
-        { name: 'MongoDB', value: 75 },
-        { name: 'Express', value: 80 },
-        { name: 'Full-Stack Development', value: 85 },
-        { name: 'API Integration', value: 80 },
-        { name: 'Data Visualization', value: 75 },
-        { name: 'Tailwind CSS', value: 80 },
-        { name: 'Responsive Design', value: 85 },
+        { name: 'JavaScript', value: 90, logo: jsLogo},
+        { name: 'React', value: 85, logo: reactLogo },
+        { name: 'Node.js', value: 80,  logo: nodeLogo },
+        { name: 'MySql', value: 75,  logo: mySqlLogo },
+        { name: 'Express', value: 80,  logo: expressLogo },
+        { name: 'Full-Stack Development', value: 85,  logo: jsLogo },
+        { name: 'API Integration', value: 80, logo: jsLogo },
+        { name: 'Data Visualization', value: 75, logo: jsLogo },
+        { name: 'Tailwind CSS', value: 80, logo: tailwindLogo},
+        { name: 'Responsive Design', value: 85, logo: jsLogo },
     ];
+
+
+    const SkillProgress = ({ value }) => (
+        <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+            <div
+                className="bg-blue-600 h-2.5 rounded-full transition-all duration-300"
+                style={{ width: `${value}%` }}
+            ></div>
+        </div>
+    );
 
     return (
         <div className={`min-h-screen p-8 transition-colors duration-300 ${
@@ -144,14 +161,16 @@ const Portfolio = () => {
                                 ? 'bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg shadow-lg'
                                 : 'bg-white bg-opacity-50 backdrop-filter backdrop-blur-lg shadow-md'
                         } p-6`}>
-                            <ResponsiveContainer width="100%" height={400}>
-                                <BarChart data={skills} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                                    <XAxis type="number" domain={[0, 100]} />
-                                    <YAxis dataKey="name" type="category" width={150} />
-                                    <Tooltip contentStyle={{ backgroundColor: theme === 'dark' ? '#1F2937' : '#FFFFFF' }} />
-                                    <Bar dataKey="value" fill={theme === 'dark' ? '#8B5CF6' : '#6D28D9'} />
-                                </BarChart>
-                            </ResponsiveContainer>
+                            {skills.map((skill, index) => (
+                                <div key={index} className="flex items-center space-x-4 p-4 bg-white shadow rounded-lg dark:bg-gray-800">
+                                    <img src={skill.logo} alt={skill.name} className="w-12 h-12" />
+                                    <div className="flex-grow">
+                                        <h3 className="text-xl font-medium">{skill.name}</h3>
+                                        <SkillProgress value={skill.value} />
+                                    </div>
+                                    <span className="font-semibold">{skill.value}%</span>
+                                </div>
+                            ))}
                         </Card>
                     </section>
                 </main>
