@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Adjust the path based on your project structure
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'; // Import tabs from shadcn
 
 // Importing SVG logos from your assets directory
 import css3Logo from '@/assets/logos/css3-color.svg';
@@ -15,19 +16,162 @@ import reactLogo from '@/assets/logos/react.svg';
 import tailwindLogo from '@/assets/logos/tailwindcss-color.svg';
 import ubuntuLogo from '@/assets/logos/ubuntu-color.svg';
 
+const codeSamples = [
+    {
+        skill: 'JavaScript',
+        title: 'JavaScript Counter',
+        description: 'This is a basic JavaScript example of a counter using React.',
+        code: `import React, { useState } from 'react';
+
+function Counter() {
+    const [count, setCount] = useState(0);
+
+    return (
+        <div>
+            <p>You clicked {count} times</p>
+            <button onClick={() => setCount(count + 1)}>Click me</button>
+        </div>
+    );
+}
+
+export default Counter;`
+    },
+    {
+        skill: 'Node.js',
+        title: 'Node.js Server',
+        description: 'A simple Node.js HTTP server example.',
+        code: `const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello, World!');
+});
+
+server.listen(3000, () => {
+    console.log('Server running at http://localhost:3000/');
+});`
+    },
+    {
+        skill: 'CSS3',
+        title: 'CSS Flexbox Example',
+        description: 'A simple CSS Flexbox layout.',
+        code: `.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #4caf50;
+}`
+    },
+    {
+        skill: 'React',
+        title: 'React Component Example',
+        description: 'This is a basic React component with state management.',
+        code: `function Welcome({ name }) {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <h1>Hello, {name}</h1>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}`
+    },
+    {
+        skill: 'Git',
+        title: 'Git Commands Example',
+        description: 'Basic Git commands for version control.',
+        code: `# Initialize a new Git repository
+git init
+
+# Add files to staging area
+git add .
+
+# Commit changes
+git commit -m "Initial commit"
+
+# Create a new branch
+git checkout -b feature-branch`
+    },
+    {
+        skill: 'MySQL',
+        title: 'MySQL Query Example',
+        description: 'A simple MySQL query to select data.',
+        code: `SELECT * FROM users WHERE age > 30;
+
+INSERT INTO users (name, age) VALUES ('John Doe', 25);
+
+UPDATE users SET age = 26 WHERE name = 'John Doe';`
+    },
+    {
+        skill: 'Express.js',
+        title: 'Express.js API Example',
+        description: 'A basic Express.js API route.',
+        code: `const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});`
+    },
+    {
+        skill: 'Linux',
+        title: 'Linux Commands Example',
+        description: 'Basic Linux commands for system navigation.',
+        code: `# List files and directories
+ls -la
+
+# Change directory
+cd /path/to/directory
+
+# Check disk space
+df -h`
+    },
+    {
+        skill: 'OpenAI',
+        title: 'OpenAI API Example',
+        description: 'Using OpenAI API to generate a response.',
+        code: `import openai
+
+openai.api_key = 'your-api-key'
+
+response = openai.Completion.create(
+  engine="text-davinci-002",
+  prompt="Translate the following English text to French: 'Hello, how are you?'",
+  max_tokens=60
+)
+
+print(response.choices[0].text.strip())`
+    }
+];
+
+// Extend skills array with matching code samples
 const skills = [
-    { name: 'HTML5', category: 'Frontend', logo: html5Logo },
-    { name: 'CSS3', category: 'Frontend', logo: css3Logo },
-    { name: 'JavaScript', category: 'Frontend', logo: javascriptLogo },
-    { name: 'React', category: 'Frontend', logo: reactLogo },
-    { name: 'Tailwind CSS', category: 'Frontend', logo: tailwindLogo },
-    { name: 'Node.js', category: 'Backend', logo: nodeLogo },
-    { name: 'Express.js', category: 'Backend', logo: expressLogo },
-    { name: 'MySQL', category: 'Backend', logo: mysqlLogo },
-    { name: 'Ubuntu', category: 'Backend', logo: ubuntuLogo },
-    { name: 'Git', category: 'Version Control', logo: gitLogo },
-    { name: 'NPM', category: 'Tools', logo: npmLogo },
-    { name: 'OpenAI', category: 'AI', logo: openaiLogo },
+    { name: 'HTML5', category: 'Frontend', logo: html5Logo, code: null },
+    { name: 'CSS3', category: 'Frontend', logo: css3Logo, code: codeSamples.find(sample => sample.skill === 'CSS3') },
+    { name: 'JavaScript', category: 'Frontend', logo: javascriptLogo, code: codeSamples.find(sample => sample.skill === 'JavaScript') },
+    { name: 'React', category: 'Frontend', logo: reactLogo, code: codeSamples.find(sample => sample.skill === 'React') },
+    { name: 'Tailwind CSS', category: 'Frontend', logo: tailwindLogo, code: null },
+    { name: 'Node.js', category: 'Backend', logo: nodeLogo, code: codeSamples.find(sample => sample.skill === 'Node.js') },
+    { name: 'Express.js', category: 'Backend', logo: expressLogo, code: codeSamples.find(sample => sample.skill === 'Express.js') },
+    { name: 'MySQL', category: 'Backend', logo: mysqlLogo, code: codeSamples.find(sample => sample.skill === 'MySQL') },
+    { name: 'Ubuntu', category: 'Backend', logo: ubuntuLogo, code: codeSamples.find(sample => sample.skill === 'Linux') },
+    { name: 'Git', category: 'Version Control', logo: gitLogo, code: codeSamples.find(sample => sample.skill === 'Git') },
+    { name: 'NPM', category: 'Tools', logo: npmLogo, code: null },
+    { name: 'OpenAI', category: 'AI', logo: openaiLogo, code: codeSamples.find(sample => sample.skill === 'OpenAI') }
 ];
 
 const categories = ['All', ...new Set(skills.map(skill => skill.category))];
@@ -35,59 +179,67 @@ const categories = ['All', ...new Set(skills.map(skill => skill.category))];
 const Skills = ({ theme }) => {
     const [filter, setFilter] = useState('All');
     const [selectedSkill, setSelectedSkill] = useState(null);
+    const codeBlockRef = useRef(null);
+
+    useEffect(() => {
+        if (codeBlockRef.current) {
+            codeBlockRef.current.scrollTop = codeBlockRef.current.scrollHeight;
+        }
+    }, [selectedSkill]);
 
     const filteredSkills = filter === 'All' ? skills : skills.filter(skill => skill.category === filter);
 
     return (
-        <div className={`p-6 max-w-4xl mx-auto ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-            {/* Skills Filter */}
-            <div className="flex flex-wrap gap-2 mb-4">
-                {categories.map(category => (
-                    <button
-                        key={category}
-                        className={`px-4 py-2 rounded-full ${filter === category ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
-                        onClick={() => setFilter(category)}
-                    >
-                        {category}
-                    </button>
-                ))}
-            </div>
+        <div className={`p-6 w-full ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+            {/* Tabs for Skills Filter */}
+            <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
+                <TabsList className="flex justify-center gap-4 mb-6">
+                    {categories.map(category => (
+                        <TabsTrigger key={category} value={category} className="px-4 py-2 rounded-md">
+                            {category}
+                        </TabsTrigger>
+                    ))}
+                </TabsList>
 
-            {/* Skill Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {filteredSkills.map(skill => (
-                    <Card
-                        key={skill.name}
-                        className={`cursor-pointer hover:shadow-lg transition-shadow ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}
-                        onClick={() => setSelectedSkill(skill)}
-                    >
-                        <CardHeader>
-                            <CardTitle className="flex items-center space-x-2">
-                                <img src={skill.logo} alt={`${skill.name} logo`} className="w-6 h-6" />
-                                <span>{skill.name}</span>
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p>Category: {skill.category}</p>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
-
-            {/* Selected Skill Example */}
-            {selectedSkill && (
-                <Card className={`mt-6 ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}>
-                    <CardHeader>
-                        <CardTitle>{selectedSkill.name} Details</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <img src={selectedSkill.logo} alt={`${selectedSkill.name} logo`} className="w-12 h-12 mb-4" />
-                        <p>More information about {selectedSkill.name} here...</p>
-                    </CardContent>
-                </Card>
-            )}
+                <TabsContent value={filter}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                        {filteredSkills.map(skill => (
+                            <Card
+                                key={skill.name}
+                                className={`cursor-pointer hover:shadow-lg transition-shadow ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}
+                            >
+                                <CardHeader>
+                                    <CardTitle className="flex items-center space-x-2">
+                                        <img src={skill.logo} alt={`${skill.name} logo`} className="w-6 h-6" />
+                                        <span>{skill.name}</span>
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <p>Category: {skill.category}</p>
+                                    <div>
+                                        {skill.code ? (
+                                            <>
+                                                <p>{skill.code.description}</p>
+                                                <pre
+                                                    className="bg-gray-100 p-2 rounded overflow-y-auto max-h-32 text-black"
+                                                    ref={codeBlockRef}
+                                                >
+                                                    <code>{skill.code.code}</code>
+                                                </pre>
+                                            </>
+                                        ) : (
+                                            <pre className="bg-gray-100 p-2 rounded overflow-y-auto max-h-32">
+                                                <code>No code sample available</code>
+                                            </pre>
+                                        )}
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </div>
+                </TabsContent>
+            </Tabs>
         </div>
     );
 };
-
 export default Skills;

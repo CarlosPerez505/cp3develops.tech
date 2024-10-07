@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Make sure to adjust the path based on your project structure
 
 const codeSamples = [
@@ -52,6 +52,94 @@ server.listen(3000, () => {
     height: 200px;
     background-color: #4caf50;
 }`
+    },
+    {
+        title: 'Fetching Data with React (useEffect)',
+        description: 'This example shows how to fetch data from an API using React\'s useEffect and useState hooks.',
+        code: `import React, { useState, useEffect } from 'react';
+
+function DataFetchingComponent() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/posts')
+            .then(response => response.json())
+            .then(data => setData(data));
+    }, []);
+
+    return (
+        <ul>
+            {data.slice(0, 10).map(item => (
+                <li key={item.id}>{item.title}</li>
+            ))}
+        </ul>
+    );
+}
+
+export default DataFetchingComponent;`
+    },
+    {
+        title: 'MySQL Database Query with Node.js',
+        description: 'A basic MySQL database query using Node.js and the mysql package.',
+        code: `const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'testdb'
+});
+
+connection.connect();
+
+connection.query('SELECT * FROM users', (error, results) => {
+    if (error) throw error;
+    console.log(results);
+});
+
+connection.end();`
+    },
+    {
+        title: 'JWT Authentication in Node.js',
+        description: 'A basic example of JWT authentication using Node.js and the jsonwebtoken package.',
+        code: `const express = require('express');
+const jwt = require('jsonwebtoken');
+
+const app = express();
+const SECRET_KEY = 'mysecretkey';
+
+app.post('/login', (req, res) => {
+    const user = { id: 1, username: 'testuser' };
+    const token = jwt.sign(user, SECRET_KEY, { expiresIn: '1h' });
+    res.json({ token });
+});
+
+app.get('/protected', (req, res) => {
+    const token = req.headers['authorization'];
+
+    if (token) {
+        jwt.verify(token, SECRET_KEY, (err, decoded) => {
+            if (err) return res.sendStatus(403);
+            res.json({ message: 'This is a protected route', decoded });
+        });
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+app.listen(3000, () => {
+    console.log('Server started on http://localhost:3000');
+});`
+    },
+    {
+        title: 'Tailwind CSS Responsive Grid',
+        description: 'A simple example of using Tailwind CSS to create a responsive grid layout.',
+        code: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-blue-500">Item 1</div>
+    <div class="bg-blue-500">Item 2</div>
+    <div class="bg-blue-500">Item 3</div>
+    <div class="bg-blue-500">Item 4</div>
+</div>`
     }
 ];
 
