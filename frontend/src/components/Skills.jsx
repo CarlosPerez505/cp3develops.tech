@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Adjust the path based on your project structure
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'; // Import tabs from shadcn
+import { motion } from 'framer-motion';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 // Importing SVG logos from your assets directory
 import css3Logo from '@/assets/logos/css3-color.svg';
@@ -183,58 +186,65 @@ const Skills = ({ theme }) => {
 
     useEffect(() => {
         if (codeBlockRef.current) {
-            codeBlockRef.current.scrollTop = codeBlockRef.current.scrollHeight;
+            codeBlockRef.current.scrollTop = 0; // Scroll to top when code is loaded
         }
     }, [selectedSkill]);
 
     const filteredSkills = filter === 'All' ? skills : skills.filter(skill => skill.category === filter);
 
     return (
-        <div className={`p-6 w-full ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+        <div className={`p-6 max-w-4xl mx-auto ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
             {/* Tabs for Skills Filter */}
             <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
-                <TabsList className="flex justify-center gap-4 mb-6">
+                <TabsList className="flex flex-wrap gap-2 mb-4">
                     {categories.map(category => (
-                        <TabsTrigger key={category} value={category} className="px-4 py-2 rounded-md">
+                        <TabsTrigger key={category} value={category} aria-controls={`panel-${category}`}>
                             {category}
                         </TabsTrigger>
                     ))}
                 </TabsList>
 
                 <TabsContent value={filter}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-                        {filteredSkills.map(skill => (
-                            <Card
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {filteredSkills.map((skill, index) => (
+                            <motion.div
                                 key={skill.name}
-                                className={`cursor-pointer hover:shadow-lg transition-shadow ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
-                                <CardHeader>
-                                    <CardTitle className="flex items-center space-x-2">
-                                        <img src={skill.logo} alt={`${skill.name} logo`} className="w-6 h-6" />
-                                        <span>{skill.name}</span>
-                                    </CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>Category: {skill.category}</p>
-                                    <div>
-                                        {skill.code ? (
-                                            <>
-                                                <p>{skill.code.description}</p>
-                                                <pre
-                                                    className="bg-gray-100 p-2 rounded overflow-y-auto max-h-32 text-black"
-                                                    ref={codeBlockRef}
-                                                >
-                                                    <code>{skill.code.code}</code>
+                                <Card
+                                    className={`cursor-pointer hover:shadow-lg transition-shadow ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}
+                                >
+                                    <CardHeader>
+                                        <CardTitle className="flex items-center space-x-2">
+                                            <img src={skill.logo} alt={`${skill.name} logo`} className="w-6 h-6" />
+                                            <span>{skill.name}</span>
+                                        </CardTitle>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <p>Category: {skill.category}</p>
+                                        <div>
+                                            {skill.code ? (
+                                                <>
+                                                    <p>{skill.code.description}</p>
+                                                    <SyntaxHighlighter
+                                                        language={skill.name.toLowerCase()}
+                                                        style={solarizedlight}
+                                                        ref={codeBlockRef}
+                                                    >
+                                                        {skill.code.code}
+                                                    </SyntaxHighlighter>
+                                                </>
+                                            ) : (
+                                                <pre className="bg-gray-100 p-2 rounded overflow-y-auto max-h-32">
+                                                    <code>No code sample available</code>
                                                 </pre>
-                                            </>
-                                        ) : (
-                                            <pre className="bg-gray-100 p-2 rounded overflow-y-auto max-h-32">
-                                                <code>No code sample available</code>
-                                            </pre>
-                                        )}
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                            )}
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
                         ))}
                     </div>
                 </TabsContent>
@@ -242,4 +252,5 @@ const Skills = ({ theme }) => {
         </div>
     );
 };
+
 export default Skills;

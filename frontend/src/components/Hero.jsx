@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Github, Linkedin, Mail, Moon, Sun } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion'; // Optional for animations
 
-const Hero = ({ toggleTheme, theme }) => {
+const Hero = () => {
     return (
         <div className="relative isolate w-full px-6 pt-14 lg:px-8 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white">
             {/* Background gradient and blur */}
@@ -20,12 +20,17 @@ const Hero = ({ toggleTheme, theme }) => {
 
             {/* Main content */}
             <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-56">
-                <div className="text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center"
+                >
                     <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                         Hello, Im carlos a full stack web developer!
+                        Hello, I'm Carlos, a Full Stack Web Developer!
                     </h1>
                     <p className="mt-6 text-lg leading-8 text-gray-100">
-                        Make your vision come true of your website come true.
+                        Let me help make your vision of a website come to life.
                     </p>
                     <div className="mt-10 flex items-center justify-center gap-x-6">
                         <a
@@ -38,7 +43,7 @@ const Hero = ({ toggleTheme, theme }) => {
                             Learn more <span aria-hidden="true">→</span>
                         </a>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Bottom background gradient */}
