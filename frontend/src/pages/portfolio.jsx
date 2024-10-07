@@ -2,6 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Github, Linkedin, Mail, Moon, Sun } from 'lucide-react';
 import { Code, Monitor, Server } from 'lucide-react';
 import { motion } from 'framer-motion';
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Badge } from '../components/ui/badge';
@@ -34,7 +35,7 @@ const Portfolio = () => {
                 'Showcases various projects and code snippets'
             ],
             tags: ['JavaScript', 'GitHub Pages', 'Portfolio'],
-            link: 'https://github.com/CarlosPerez505/CarlosPerez505.github.io' // GitHub link
+            link: 'https://github.com/CarlosPerez505/CarlosPerez505.github.io'
         },
         {
             title: 'RedPalmProject',
@@ -46,7 +47,7 @@ const Portfolio = () => {
                 'Database handling and API integrations for real-time data'
             ],
             tags: ['Node.js', 'Express', 'Database'],
-            link: 'https://github.com/CarlosPerez505/RedPalmProject' // GitHub link
+            link: 'https://github.com/CarlosPerez505/RedPalmProject'
         },
         {
             title: 'nextjs-portfolio',
@@ -58,7 +59,7 @@ const Portfolio = () => {
                 'Responsive design with server-side rendering'
             ],
             tags: ['Next.js', 'Tailwind CSS', 'Responsive Design'],
-            link: 'https://github.com/CarlosPerez505/nextjs-portfolio' // GitHub link
+            link: 'https://github.com/CarlosPerez505/nextjs-portfolio'
         },
         {
             title: 'cp3develops.tech',
@@ -70,7 +71,7 @@ const Portfolio = () => {
                 'Responsive design'
             ],
             tags: ['Next.js', 'Tailwind CSS'],
-            link: 'https://github.com/CarlosPerez505/cp3develops.tech' // GitHub link
+            link: 'https://github.com/CarlosPerez505/cp3develops.tech'
         },
         {
             title: 'portfolio-next.js',
@@ -82,7 +83,7 @@ const Portfolio = () => {
                 'Shows portfolio projects'
             ],
             tags: ['Next.js', 'Tailwind CSS'],
-            link: 'https://github.com/CarlosPerez505/portfolio-next.js' // GitHub link
+            link: 'https://github.com/CarlosPerez505/portfolio-next.js'
         },
         {
             title: 'redpalm-next',
@@ -94,10 +95,9 @@ const Portfolio = () => {
                 'Responsive layout'
             ],
             tags: ['Next.js', 'Tailwind CSS', 'Node.js'],
-            link: 'https://github.com/CarlosPerez505/redpalm-next' // GitHub link
+            link: 'https://github.com/CarlosPerez505/redpalm-next'
         }
     ];
-
 
     const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
 
@@ -106,12 +106,12 @@ const Portfolio = () => {
             <Hero /> {/* Full-width hero section */}
             <div className="container mx-auto max-w-7xl p-6">
 
-                <section className="mb-12">
-                    <h2 className="text-3xl font-semibold mb-4 text-center">Featured Projects</h2>
+                <section className="mb-16"> {/* Increased margin-bottom */}
+                    <h2 className="text-3xl font-semibold mb-8 text-center">Featured Projects</h2> {/* Increased bottom margin */}
                     {/* Tabs for filtering projects */}
                     <div className="flex justify-center">
                         <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
-                            <TabsList className="flex justify-center space-x-4 mb-4">
+                            <TabsList className="flex justify-center space-x-4 mb-8"> {/* Increased margin-bottom */}
                                 {categories.map(category => (
                                     <TabsTrigger key={category} value={category} className="px-4 py-2 rounded-md">
                                         {category}
@@ -121,16 +121,16 @@ const Portfolio = () => {
 
                             {/* Project Grid goes inside each TabsContent */}
                             <TabsContent value="All">
-                                <ProjectGrid projects={projects} theme={theme}/>
+                                <ProjectGrid projects={projects} theme={theme} />
                             </TabsContent>
                             <TabsContent value="Full Stack">
-                                <ProjectGrid projects={projects.filter(p => p.category === 'fullstack')} theme={theme}/>
+                                <ProjectGrid projects={projects.filter(p => p.category === 'fullstack')} theme={theme} />
                             </TabsContent>
                             <TabsContent value="Frontend">
-                                <ProjectGrid projects={projects.filter(p => p.category === 'frontend')} theme={theme}/>
+                                <ProjectGrid projects={projects.filter(p => p.category === 'frontend')} theme={theme} />
                             </TabsContent>
                             <TabsContent value="Backend">
-                                <ProjectGrid projects={projects.filter(p => p.category === 'backend')} theme={theme}/>
+                                <ProjectGrid projects={projects.filter(p => p.category === 'backend')} theme={theme} />
                             </TabsContent>
                         </Tabs>
                     </div>
@@ -138,17 +138,17 @@ const Portfolio = () => {
 
                 <section>
                     <Suspense fallback={<div>Loading skills...</div>}>
-                        <Skills theme={theme}/>
+                        <Skills theme={theme} />
                     </Suspense>
                 </section>
 
                 <section className="mb-12">
-                    <Contact/>
+                    <Contact />
                 </section>
 
             </div>
 
-            <footer className="mt-12 text-center text-opacity-60 w-full">
+            <footer className="mt-16 text-center text-opacity-60 w-full"> {/* Increased top margin */}
                 <p>&copy; 2024 Carlos Perez. All rights reserved.</p>
             </footer>
         </div>
