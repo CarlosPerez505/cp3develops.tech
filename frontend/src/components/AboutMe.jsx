@@ -54,7 +54,7 @@ const AboutMe = () => {
     }, []);
 
     return (
-        <div className="about-section max-w-4xl mx-auto mt-12 relative">
+        <div className="about-section max-w-4xl mx-auto mt-12 relative bg-cover bg-center" style={{ backgroundImage: 'url(../assets/tux.png)' }}>
             {/* SVG for Animated Border */}
             <svg
                 className="about-border absolute inset-0 w-full h-full"
@@ -73,16 +73,7 @@ const AboutMe = () => {
             </svg>
 
             {/* Content that appears after the border animation */}
-            <div className="about-content bg-white p-8 rounded-lg shadow-lg relative z-10">
-                {/* Image Section */}
-                <div className="w-full mb-8 lg:mb-0 mx-auto text-center">
-                    <img
-                        src="../assets/react.svg"
-                        alt="Carlos Perez"
-                        className="rounded-full w-48 h-48 object-cover shadow-md border-2 border-red-600 mx-auto"
-                    />
-                </div>
-
+            <div className="about-content bg-white bg-opacity-80 p-8 rounded-lg shadow-lg relative z-10">
                 {/* Text Section */}
                 <div className="text-gray-900 text-center lg:text-left">
                     <h2 className="text-3xl font-bold mb-4 text-red-700">Carlos Perez</h2>
