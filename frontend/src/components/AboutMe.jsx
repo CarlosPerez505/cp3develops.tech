@@ -37,9 +37,9 @@ const AboutMe = () => {
             <div className="about-content bg-black bg-opacity-70 p-8 rounded-lg shadow-lg relative z-10">
                 {/* Text Section */}
                 <div className="text-white text-center lg:text-left">
-                    <h2 className="text-3xl font-bold mb-4 text-purple-400">Carlos Perez</h2>
+                    <h2 className="text-3xl font-bold mb-4 text-purple-400">Who am I?</h2>
                     <p className="text-lg mb-4 leading-relaxed">
-                        Hi! I'm Carlos Perez, a passionate web developer and engineer with over 11 years of professional mechanical experience, including work as a mechanic in the Army and at Baker Hughes. My background in engineering has laid a strong foundation for my career as a developer, where I apply my problem-solving skills and attention to detail to build innovative web applications.
+                        I'm a passionate web developer and engineer with over 11 years of professional mechanical experience, including work as a mechanic in the Army and at Baker Hughes. My background in engineering has laid a strong foundation for my career as a developer, where I apply my problem-solving skills and attention to detail to build innovative web applications.
                     </p>
                     <p className="text-lg mb-4 leading-relaxed">
                         I am currently working on <strong className="text-purple-400">The Red Palm Project</strong>, a web app designed to raise awareness and help locate missing Indigenous people in the Southwest using advanced mapping and data analysis techniques. I strive to make a meaningful impact on real-world problems by leveraging technology.

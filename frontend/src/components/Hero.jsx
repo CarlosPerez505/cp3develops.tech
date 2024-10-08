@@ -41,7 +41,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="hero-section relative w-full px-4 pt-10 lg:px-8 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white overflow-hidden">
+        <div className="hero-section relative w-full px-4 pt-20 lg:px-8 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white overflow-hidden">
             {/* Animated Background */}
             <div
                 className="background-gradient absolute inset-0 -z-10 transform scale-100 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
@@ -49,23 +49,23 @@ const Hero = () => {
             />
 
             {/* Main Content */}
-            <div className="mx-auto max-w-7xl py-24 sm:py-36 lg:py-48 text-center">
-                <h1 className="hero-text text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-56 text-center">
+                <h1 className="hero-text text-5xl font-bold tracking-tight text-white sm:text-7xl">
                     Hello, I'm Carlos, a Full Stack Web Developer!
                 </h1>
-                <p className="hero-text mt-4 text-base leading-7 text-gray-100 sm:text-lg">
+                <p className="hero-text mt-6 text-lg leading-8 text-gray-100 sm:text-xl">
                     Let me help make your vision of a website come to life.
                 </p>
-                <div className="mt-8 flex items-center justify-center gap-x-4 flex-wrap">
+                <div className="mt-12 flex items-center justify-center gap-x-6 flex-wrap">
                     <a
                         href="#"
-                        className="hero-text rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+                        className="hero-text rounded-md bg-indigo-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500"
                     >
                         Get Started
                     </a>
                     <a
                         href="#"
-                        className="hero-text text-sm font-semibold leading-6 text-white hover:underline"
+                        className="hero-text text-base font-semibold leading-6 text-white hover:underline"
                     >
                         Learn More <span aria-hidden="true">&rarr;</span>
                     </a>
