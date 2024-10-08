@@ -114,7 +114,7 @@ const Portfolio = () => {
                     {/* Tabs for filtering projects */}
                     <div className="flex justify-center">
                         <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
-                            <TabsList className="flex justify-center space-x-6 mb-12"> {/* Adjusted margin-bottom and space between tabs */}
+                            <TabsList className="flex justify-center flex-wrap gap-6 mb-12"> {/* Adjusted margin-bottom and spacing */}
                                 {categories.map(category => (
                                     <TabsTrigger key={category} value={category} className="px-6 py-3 rounded-md">
                                         {category}
@@ -163,7 +163,7 @@ const Portfolio = () => {
 
 const ProjectGrid = ({ projects, theme }) => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-12"> {/* Adjusted gap for better spacing between projects */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"> {/* Adjusted gap for better spacing between projects */}
             {projects.map((project, index) => (
                 <motion.div
                     key={index}
