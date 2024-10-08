@@ -158,6 +158,28 @@ response = openai.Completion.create(
 )
 
 print(response.choices[0].text.strip())`
+    },
+    {
+        skill: 'HTML5',
+        title: 'index.html',
+        description: 'basic backbone of the internet.',
+        code:
+`<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <script type="module" crossorigin src="/assets/index-BX81NHiO.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CDKtLVvo.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>`
     }
 ];
 

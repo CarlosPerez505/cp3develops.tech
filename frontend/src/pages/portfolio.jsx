@@ -8,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs'
 import { Badge } from '../components/ui/badge';
 import Hero from "../components/Hero.jsx";
 import Contact from "@/components/Contact.jsx";
+import AboutMe from "@/components/AboutMe.jsx";
 
 // Lazy load Skills component (optional to optimize bundle)
 const Skills = lazy(() => import('@/components/Skills'));
@@ -103,7 +104,8 @@ const Portfolio = () => {
 
     return (
         <div className={`min-h-screen w-full transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
-            <Hero /> {/* Full-width hero section */}
+            <Hero />
+            <AboutMe/>{/* Full-width hero section */}
             <div className="container mx-auto max-w-7xl p-6">
 
                 <section className="mb-16"> {/* Increased margin-bottom */}
@@ -135,6 +137,7 @@ const Portfolio = () => {
                         </Tabs>
                     </div>
                 </section>
+
 
                 <section>
                     <Suspense fallback={<div>Loading skills...</div>}>
