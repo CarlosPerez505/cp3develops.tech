@@ -52,7 +52,7 @@ const Skills = ({ theme }) => {
         <div className={`p-6 max-w-4xl mx-auto ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
             {/* Tabs for Skills Filter */}
             <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
-                <div className="bg-gray-800 rounded-md shadow-md p-4 sticky top-0 z-50">
+                <div className=" rounded-md shadow-md p-4 sticky top-0 z-50">
                     <TabsList className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-center">
                         {categories.map(category => (
                             <TabsTrigger
@@ -67,7 +67,7 @@ const Skills = ({ theme }) => {
                     </TabsList>
                 </div>
 
-                <TabsContent value={filter} className="mt-6 md:mt-8">
+                <TabsContent value={filter} className="mt-20 md:mt-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredSkills.map((skill, index) => (
                             <motion.div
