@@ -104,18 +104,20 @@ const Portfolio = () => {
     const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
 
     return (
-        <div className={`min-h-screen w-full transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
-            <Hero />
+        <div className={`min-h-screen w-screen transition-colors duration-300 ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
+            <Hero/>
             <AboutMe/>{/* Full-width hero section */}
             <div className="container mx-auto max-w-7xl p-6">
 
                 <section className="mb-20"> {/* Adjusted margin-bottom for more spacing */}
-                    <h2 className="text-3xl font-semibold mb-12 text-center">Featured Projects</h2> {/* Adjusted bottom margin */}
+                    <h2 className="text-3xl font-semibold mb-12 text-center">Featured
+                        Projects</h2> {/* Adjusted bottom margin */}
                     {/* Tabs for filtering projects */}
                     <div className="flex justify-center">
                         <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
-                            <TabsList className="flex justify-center flex-wrap gap-6 mb-12"> {/* Adjusted margin-bottom and spacing */}
-                                {categories.map(category => (
+                            <TabsList className="flex justify-center flex-wrap gap-6 mb-12 overflow-hidden">
+
+                            {categories.map(category => (
                                     <TabsTrigger key={category} value={category} className="px-6 py-3 rounded-md">
                                         {category}
                                     </TabsTrigger>
@@ -124,16 +126,16 @@ const Portfolio = () => {
 
                             {/* Project Grid goes inside each TabsContent */}
                             <TabsContent value="All">
-                                <ProjectGrid projects={projects} theme={theme} />
+                                <ProjectGrid projects={projects} theme={theme}/>
                             </TabsContent>
                             <TabsContent value="Full Stack">
-                                <ProjectGrid projects={projects.filter(p => p.category === 'fullstack')} theme={theme} />
+                                <ProjectGrid projects={projects.filter(p => p.category === 'fullstack')} theme={theme}/>
                             </TabsContent>
                             <TabsContent value="Frontend">
-                                <ProjectGrid projects={projects.filter(p => p.category === 'frontend')} theme={theme} />
+                                <ProjectGrid projects={projects.filter(p => p.category === 'frontend')} theme={theme}/>
                             </TabsContent>
                             <TabsContent value="Backend">
-                                <ProjectGrid projects={projects.filter(p => p.category === 'backend')} theme={theme} />
+                                <ProjectGrid projects={projects.filter(p => p.category === 'backend')} theme={theme}/>
                             </TabsContent>
                         </Tabs>
                     </div>
@@ -141,7 +143,7 @@ const Portfolio = () => {
 
                 <section className="mb-20"> {/* Added margin-bottom for spacing */}
                     <Suspense fallback={<div>Loading skills...</div>}>
-                        <Skills theme={theme} />
+                        <Skills theme={theme}/>
                     </Suspense>
                 </section>
                 <section className="mb-20"> {/* Added margin-bottom for spacing */}
@@ -149,7 +151,7 @@ const Portfolio = () => {
                 </section>
 
                 <section className="mb-20">
-                    <Contact />
+                    <Contact/>
                 </section>
 
             </div>
@@ -161,9 +163,9 @@ const Portfolio = () => {
     );
 };
 
-const ProjectGrid = ({ projects, theme }) => {
+const ProjectGrid = ({projects, theme}) => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"> {/* Adjusted gap for better spacing between projects */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-12"> {/* Adjusted gap for better spacing between projects */}
             {projects.map((project, index) => (
                 <motion.div
                     key={index}
