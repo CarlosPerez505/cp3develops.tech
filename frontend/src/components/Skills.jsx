@@ -52,7 +52,7 @@ const Skills = ({ theme }) => {
         <div className={`p-6 max-w-4xl mx-auto ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
             {/* Tabs for Skills Filter */}
             <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
-                <div className=" rounded-md shadow-md p-4   z-50">
+                <div className=" rounded-md shadow-md p-4 sticky top-0 z-50">
                     <TabsList className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:justify-center">
                         {categories.map(category => (
                             <TabsTrigger
