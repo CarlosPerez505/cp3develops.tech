@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import GetStartedForm from './GetStartedForm';
+import GetStartedButton from './GetStartedButton';
 
 // Register GSAP Plugin
 if (typeof window !== 'undefined') {
@@ -8,6 +10,8 @@ if (typeof window !== 'undefined') {
 }
 
 const Hero = () => {
+    const [showGetStartedForm, setShowGetStartedForm] = useState(false);
+
     useEffect(() => {
         // Text Animation
         gsap.fromTo(
@@ -40,6 +44,14 @@ const Hero = () => {
         });
     }, []);
 
+    const handleGetStartedClick = () => {
+        setShowGetStartedForm(true);
+    };
+
+    const closeGetStartedForm = () => {
+        setShowGetStartedForm(false);
+    };
+
     return (
         <div className="hero-section relative w-full px-4 pt-20 lg:px-8 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 text-white overflow-hidden">
             {/* Animated Background */}
@@ -57,20 +69,11 @@ const Hero = () => {
                     Let me help make your vision of a website come to life.
                 </p>
                 <div className="mt-12 flex items-center justify-center gap-x-6 flex-wrap">
-                    <a
-                        href="#"
-                        className="hero-text rounded-md bg-indigo-600 px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500"
-                    >
-                        Get Started
-                    </a>
-                    <a
-                        href="#"
-                        className="hero-text text-base font-semibold leading-6 text-white hover:underline"
-                    >
-                        Learn More <span aria-hidden="true">&rarr;</span>
-                    </a>
+                    <GetStartedButton onClick={handleGetStartedClick} />
                 </div>
             </div>
+
+            {showGetStartedForm && <GetStartedForm onClose={closeGetStartedForm} />}
         </div>
     );
 };
