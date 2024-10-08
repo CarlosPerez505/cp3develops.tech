@@ -9,6 +9,7 @@ import { Badge } from '../components/ui/badge';
 import Hero from "../components/Hero.jsx";
 import Contact from "@/components/Contact.jsx";
 import AboutMe from "@/components/AboutMe.jsx";
+import PricingPlan from "@/components/PricingPlan.jsx";
 
 // Lazy load Skills component (optional to optimize bundle)
 const Skills = lazy(() => import('@/components/Skills'));
@@ -108,14 +109,14 @@ const Portfolio = () => {
             <AboutMe/>{/* Full-width hero section */}
             <div className="container mx-auto max-w-7xl p-6">
 
-                <section className="mb-16"> {/* Increased margin-bottom */}
-                    <h2 className="text-3xl font-semibold mb-8 text-center">Featured Projects</h2> {/* Increased bottom margin */}
+                <section className="mb-20"> {/* Adjusted margin-bottom for more spacing */}
+                    <h2 className="text-3xl font-semibold mb-12 text-center">Featured Projects</h2> {/* Adjusted bottom margin */}
                     {/* Tabs for filtering projects */}
                     <div className="flex justify-center">
                         <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
-                            <TabsList className="flex justify-center space-x-4 mb-8"> {/* Increased margin-bottom */}
+                            <TabsList className="flex justify-center space-x-6 mb-12"> {/* Adjusted margin-bottom and space between tabs */}
                                 {categories.map(category => (
-                                    <TabsTrigger key={category} value={category} className="px-4 py-2 rounded-md">
+                                    <TabsTrigger key={category} value={category} className="px-6 py-3 rounded-md">
                                         {category}
                                     </TabsTrigger>
                                 ))}
@@ -138,20 +139,22 @@ const Portfolio = () => {
                     </div>
                 </section>
 
-
-                <section>
+                <section className="mb-20"> {/* Added margin-bottom for spacing */}
                     <Suspense fallback={<div>Loading skills...</div>}>
                         <Skills theme={theme} />
                     </Suspense>
                 </section>
+                <section className="mb-20"> {/* Added margin-bottom for spacing */}
+                    <PricingPlan/>
+                </section>
 
-                <section className="mb-12">
+                <section className="mb-20">
                     <Contact />
                 </section>
 
             </div>
 
-            <footer className="mt-16 text-center text-opacity-60 w-full"> {/* Increased top margin */}
+            <footer className="mt-20 text-center text-opacity-60 w-full"> {/* Adjusted top margin for spacing */}
                 <p>&copy; 2024 Carlos Perez. All rights reserved.</p>
             </footer>
         </div>
@@ -160,7 +163,7 @@ const Portfolio = () => {
 
 const ProjectGrid = ({ projects, theme }) => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-12"> {/* Adjusted gap for better spacing between projects */}
             {projects.map((project, index) => (
                 <motion.div
                     key={index}
@@ -181,18 +184,18 @@ const ProjectGrid = ({ projects, theme }) => {
                         </CardHeader>
                         <CardContent>
                             <CardDescription>{project.description}</CardDescription>
-                            <ul className="list-disc list-inside mt-2 text-sm">
+                            <ul className="list-disc list-inside mt-4 text-sm"> {/* Adjusted margin-top for spacing */}
                                 {project.details.map((detail, i) => (
                                     <li key={i}>{detail}</li>
                                 ))}
                             </ul>
-                            <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                            <div className="flex flex-wrap gap-4 mt-6 justify-center"> {/* Adjusted gap for more space between badges */}
                                 {project.tags.map((tag, i) => (
                                     <Badge key={i} variant="secondary" className="bg-violet-500 text-white">{tag}</Badge>
                                 ))}
                             </div>
                         </CardContent>
-                        <CardFooter>
+                        <CardFooter className="mt-6">
                             <a href={project.link} className="text-violet-400 hover:text-violet-300 transition-colors">View Project</a>
                         </CardFooter>
                     </Card>
