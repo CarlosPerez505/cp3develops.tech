@@ -6,7 +6,7 @@ import GetStartedForm from "@/components/GetStartedForm.jsx";
 const FreeWebsitePromo = () => {
     const [showPromo, setShowPromo] = useState(false);
     const [showGetStartedForm, setShowGetStartedForm] = useState(false);
-    const promoTimers = [10000, 50000, 100000]; // 10s, 20s, 30s delays
+    const promoTimers = [100000, 50000, 100000]; // 10s, 20s, 30s delays
 
     useEffect(() => {
         let timeouts = [];

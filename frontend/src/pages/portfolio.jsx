@@ -13,6 +13,7 @@ import PricingPlan from "@/components/PricingPlan.jsx";
 import GetStartedForm from "@/components/GetStartedForm";
 import FreeWebSitePromo from "@/components/FreeWebSitePromo.jsx";
 
+
 // Lazy load Skills component (optional to optimize bundle)
 const Skills = lazy(() => import('@/components/Skills'));
 
