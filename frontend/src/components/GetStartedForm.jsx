@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import GetStartedButton from "@/components/GetStartedButton.jsx";
 
 const GetStartedForm = ({ onClose }) => {
     const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ const GetStartedForm = ({ onClose }) => {
     };
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 text-black">
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
                 <button
                     onClick={onClose}
@@ -50,7 +51,7 @@ const GetStartedForm = ({ onClose }) => {
                     <form onSubmit={handleSubmit}>
                         <h2 className="text-2xl font-bold mb-6 text-indigo-600">Get Started with Your Free Website!</h2>
 
-                        <div className="mb-4">
+                        <div className="mb-4 text-black">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                                 Name
                             </label>
@@ -128,14 +129,7 @@ const GetStartedForm = ({ onClose }) => {
                                 onChange={handleCaptchaChange}
                             />
                         </div>
-
-                        <button
-                            type="submit"
-                            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition"
-                            disabled={!captchaVerified}
-                        >
-                            Submit
-                        </button>
+                        <GetStartedButton/>
                     </form>
                 )}
             </div>
