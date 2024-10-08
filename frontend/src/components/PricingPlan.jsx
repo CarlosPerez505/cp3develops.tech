@@ -5,7 +5,7 @@ const PricingPlan = () => {
     const plans = [
         {
             name: 'Launch Plan',
-            price: 'Free for 3 months',
+            price: '$250/month',
             description:
                 'An opportunity for new businesses to get a high-quality website up and running with no upfront cost.',
             features: [
@@ -17,7 +17,7 @@ const PricingPlan = () => {
         },
         {
             name: 'Growth Plan',
-            price: '$250/month',
+            price: '$350/month',
             description:
                 'Perfect for growing businesses that need ongoing support and improvements.',
             features: [
@@ -29,7 +29,7 @@ const PricingPlan = () => {
         },
         {
             name: 'Premium Plan',
-            price: '$400+/month',
+            price: '$500+/month',
             description:
                 'The ultimate package for businesses that want premium ongoing design, features, and marketing support.',
             features: [
