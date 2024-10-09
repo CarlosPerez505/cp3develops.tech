@@ -47,25 +47,25 @@ I enjoy tackling challenges in the field of full-stack development and am always
 
 ## 🏆 Achievements
 
-- **[Award Name]** - Received for [specific achievement].
-- **[Certification Name]** - Completed from [institution].
+- **Arcom** - Received for service.
+- **Full-stack wed dev bootcamp** - Completed from CNM.
 
 ## 🌱 Currently Learning
 I'm continuously expanding my knowledge and skills, and I'm currently focusing on:
-- [Technology or tool you're learning]
-- [Area of personal development]
+- Docker OpenAI
+- solutions to life 
 
 ## 📫 Contact
 
-- **Email**: [Carlosperez505@gmail.com](mailto:Carlosperez505@gmail.com)
-- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/yourprofile)
+- **Email**: [cp3develops@gmail.com](mailto:Carlosperez505@gmail.com)
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/carlos-perez-29b9b6274/)
 - **Website**: 
 
 ## 🌐 Socials
 
-- [LinkedIn](https://www.linkedin.com/in/yourprofile)
+- [LinkedIn](https://www.linkedin.com/in/carlos-perez-29b9b6274/)
 - [Twitter](https://twitter.com/yourusername)
-- [GitHub](https://github.com/yourusername)
+- [GitHub](Carlosperez505.github)
 
 ---
 
