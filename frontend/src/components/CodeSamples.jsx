@@ -146,7 +146,7 @@ app.listen(3000, () => {
 const CodeSamples = ({ theme }) => {
     return (
         <div className={`p-6 max-w-4xl mx-auto text-black`}>
-            <h2 className="text-2xl font-semibold mb-4">Code Samples</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-black">Code Samples</h2>
 
             {/* Code Samples Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

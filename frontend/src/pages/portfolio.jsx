@@ -12,6 +12,7 @@ import AboutMe from "@/components/AboutMe.jsx";
 import PricingPlan from "@/components/PricingPlan.jsx";
 import GetStartedForm from "@/components/GetStartedForm";
 import FreeWebSitePromo from "@/components/FreeWebSitePromo.jsx";
+import GetStartedButton from "@/components/GetStartedButton.jsx";
 
 
 // Lazy load Skills component (optional to optimize bundle)
@@ -166,13 +167,7 @@ const Portfolio = () => {
                 </section>
 
                 <section className="mb-20">
-                    <button
-                        onClick={handleGetStartedClick}
-                        id="get-started-button"
-                        className="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition"
-                    >
-                        Get Started
-                    </button>
+                    <GetStartedButton/>
                     {showGetStartedForm && <GetStartedForm onClose={closeGetStartedForm} />}
                 </section>
 
