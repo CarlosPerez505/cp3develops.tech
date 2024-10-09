@@ -3,8 +3,8 @@
 Welcome to my portfolio! I'm Carlos Perez, a full-stack developer passionate about building impactful projects and solving real-world problems through technology.
 
 ## 🚀 About Me
-- **Location**: Albuquerque,  New Mexico
-- **Education**: Your Degree, Institution
+- **Location**: New Mexico
+- **Education**: Full-Stack , CNM
 - **Current Role**: CTO, Cp3develops
 - **Focus Areas**: Web Development, Machine Learning, Artificial Intelligence
 - **Skills**: JavaScript, React, Node.js, Docker, MySQL, Tailwind CSS
@@ -19,23 +19,7 @@ I enjoy tackling challenges in the field of full-stack development and am always
 
 ---
 
-### 2. [Project Name 2](https://github.com/yourusername/project-2)
-**Tech Stack**: [List the technologies]  
-**Description**: Brief description of what the project does and its significance.
 
----
-
-### 3. [Project Name 3](https://github.com/yourusername/project-3)
-**Tech Stack**: [List the technologies]  
-**Description**: Brief description of what the project does and its significance.
-
----
-
-### 4. [Project Name 4](https://github.com/yourusername/project-4)
-**Tech Stack**: [List the technologies]  
-**Description**: Brief description of what the project does and its significance.
-
----
 
 ## 🔧 Skills & Tools
 
