@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { motion } from 'framer-motion';
+import GetStartedButton from "@/components/GetStartedButton.jsx";
 
-const PricingPlan = () => {
+const PricingPlan = ({ theme, onGetStartedClick }) => {
     const plans = [
         {
             name: 'Launch Plan',
             price: '$250/month',
             description:
-                'An opportunity for new businesses to get a high-quality website up and running with no upfront cost.',
+                'An opportunity for new businesses to get a high-quality website up and running with very little upfront cost.',
             features: [
                 'Custom Website Design',
-                'Free Hosting for 3 Months',
+                'Purchase a domain and hosting for 3 months (Godaddy, Namecheap, etc.)',
                 'Powered by Your Company Badge',
             ],
             buttonLabel: 'Get Started',
@@ -42,7 +43,7 @@ const PricingPlan = () => {
     ];
 
     return (
-        <div className="pricing-section p-8 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+        <div className={`p-8 ${theme === 'dark' ? 'bg-dark-gradient' : 'bg-light-gradient'} text-white`}>
             <h2 className="text-4xl font-bold text-center mb-12">Our Pricing Plans</h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {plans.map((plan, index) => (
@@ -63,9 +64,7 @@ const PricingPlan = () => {
                                 </li>
                             ))}
                         </ul>
-                        <button className="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700">
-                            {plan.buttonLabel}
-                        </button>
+                        <GetStartedButton onClick={onGetStartedClick} />
                     </motion.div>
                 ))}
             </div>

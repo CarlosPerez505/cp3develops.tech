@@ -1,12 +1,14 @@
 import React from 'react';
 
-const GetStartedButton = ({ onClick }) => {
+const GetStartedButton = ({ onClick, disabled }) => {
     return (
         <button
             onClick={onClick}
-            className="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-500 transition"
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            disabled={disabled}
         >
-            Get Started
+            Send Message
         </button>
     );
 };

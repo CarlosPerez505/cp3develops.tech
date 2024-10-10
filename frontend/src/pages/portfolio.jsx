@@ -50,7 +50,7 @@ const Portfolio = () => {
                     </Suspense>
                 </section>
 
-                <section className="mb-20 w-full"> {/* Full-width section */}
+                <section id="pricing" className="mb-20 w-full"> {/* Full-width section */}
                     <PricingPlan />
                 </section>
 
