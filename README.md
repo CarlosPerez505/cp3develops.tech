@@ -3,8 +3,8 @@
 Welcome to my portfolio! I'm Carlos Perez, a full-stack developer passionate about building impactful projects and solving real-world problems through technology.
 
 ## 🚀 About Me
-- **Location**: Albuquerque,  New Mexico
-- **Education**: Your Degree, Institution
+- **Location**: New Mexico
+- **Education**: Full-Stack , CNM
 - **Current Role**: CTO, Cp3develops
 - **Focus Areas**: Web Development, Machine Learning, Artificial Intelligence
 - **Skills**: JavaScript, React, Node.js, Docker, MySQL, Tailwind CSS
@@ -19,23 +19,7 @@ I enjoy tackling challenges in the field of full-stack development and am always
 
 ---
 
-### 2. [Project Name 2](https://github.com/yourusername/project-2)
-**Tech Stack**: [List the technologies]  
-**Description**: Brief description of what the project does and its significance.
 
----
-
-### 3. [Project Name 3](https://github.com/yourusername/project-3)
-**Tech Stack**: [List the technologies]  
-**Description**: Brief description of what the project does and its significance.
-
----
-
-### 4. [Project Name 4](https://github.com/yourusername/project-4)
-**Tech Stack**: [List the technologies]  
-**Description**: Brief description of what the project does and its significance.
-
----
 
 ## 🔧 Skills & Tools
 
@@ -47,25 +31,25 @@ I enjoy tackling challenges in the field of full-stack development and am always
 
 ## 🏆 Achievements
 
-- **[Award Name]** - Received for [specific achievement].
-- **[Certification Name]** - Completed from [institution].
+- **Arcom** - Received for service.
+- **Full-stack wed dev bootcamp** - Completed from CNM.
 
 ## 🌱 Currently Learning
 I'm continuously expanding my knowledge and skills, and I'm currently focusing on:
-- [Technology or tool you're learning]
-- [Area of personal development]
+- Docker OpenAI
+- solutions to life 
 
 ## 📫 Contact
 
-- **Email**: [Carlosperez505@gmail.com](mailto:Carlosperez505@gmail.com)
-- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/yourprofile)
+- **Email**: [cp3develops@gmail.com](mailto:Carlosperez505@gmail.com)
+- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/carlos-perez-29b9b6274/)
 - **Website**: 
 
 ## 🌐 Socials
 
-- [LinkedIn](https://www.linkedin.com/in/yourprofile)
+- [LinkedIn](https://www.linkedin.com/in/carlos-perez-29b9b6274/)
 - [Twitter](https://twitter.com/yourusername)
-- [GitHub](https://github.com/yourusername)
+- [GitHub](Carlosperez505.github)
 
 ---
 
