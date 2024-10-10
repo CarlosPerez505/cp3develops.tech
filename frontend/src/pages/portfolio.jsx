@@ -8,7 +8,8 @@ import GetStartedForm from "@/components/GetStartedForm";
 import FreeWebSitePromo from "@/components/FreeWebSitePromo.jsx";
 import GetStartedButton from "@/components/GetStartedButton.jsx";
 import Footer from '@/components/Footer'; // Importing Footer component
-import Projects from '@/components/PortfolioProjects.jsx'; // Importing Projects component
+import Projects from '@/components/PortfolioProjects.jsx';
+import CornerClock from "@/components/ui/CornerClock.jsx"; // Importing Projects component
 
 // Lazy load Skills component (optional to optimize bundle)
 const Skills = lazy(() => import('@/components/Skills'));
@@ -38,6 +39,7 @@ const Portfolio = () => {
             className={`min-h-screen w-full transition-colors duration-300 overflow-x-hidden ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}
         >
             <Hero />
+            <CornerClock/>
             <AboutMe />{/* Full-width hero section */}
             <div className="w-full px-4 md:px-6"> {/* Adjusted padding to prevent horizontal scroll */}
                 <Projects theme={theme} /> {/* Projects section */}
