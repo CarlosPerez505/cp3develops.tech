@@ -11,9 +11,11 @@ const Contact = () => {
         name: '',
         email: '',
         message: '',
+
     });
     const [captchaVerified, setCaptchaVerified] = useState(false);
     const [formStatus, setFormStatus] = useState(''); // State for form submission status
+    console.log(SERVICE_ID, TEMPLATE_ID, USER_ID);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;

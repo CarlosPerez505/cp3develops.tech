@@ -52,11 +52,6 @@ const Portfolio = () => {
                     <PricingPlan />
                 </section>
 
-                <section className="mb-20 w-full"> {/* Full-width section */}
-                    <GetStartedButton />
-                    {showGetStartedForm && <GetStartedForm onClose={closeGetStartedForm} />}
-                </section>
-
                 <section id="contact" className="mb-20 w-full"> {/* Full-width section */}
                     <Contact />
                 </section>
