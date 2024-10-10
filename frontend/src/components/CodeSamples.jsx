@@ -8,11 +8,13 @@ function Counter() {
     const [count, setCount] = useState(0);
 
     return (
-        <div>
-            <p>You clicked {count} times</p>
-            <button onClick={() => setCount(count + 1)}>
-                Click me
-            </button>
+        <div className="flex items-center justify-center h-screen">
+            <div className="text-center">
+                <p className="text-lg mb-4">You clicked {count} times</p>
+                <button onClick={() => setCount(count + 1)} className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                    Click me
+                </button>
+            </div>
         </div>
     );
 }
@@ -65,11 +67,14 @@ function DataFetchingComponent() {
     }, []);
 
     return (
-        <ul>
-            {data.slice(0, 10).map(item => (
-                <li key={item.id}>{item.title}</li>
-            ))}
-        </ul>
+        <div className="p-4">
+            <h2 className="text-xl font-semibold mb-4">Posts</h2>
+            <ul className="list-disc pl-5">
+                {data.slice(0, 10).map(item => (
+                    <li key={item.id}>{item.title}</li>
+                ))}
+            </ul>
+        </div>
     );
 }
 
@@ -132,18 +137,31 @@ app.listen(3000, () => {
         title: 'Tailwind CSS Responsive Grid',
         description: 'A simple example of using Tailwind CSS to create a responsive grid layout.',
         code: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-    <div class="bg-blue-500">Item 1</div>
-    <div class="bg-blue-500">Item 2</div>
-    <div class="bg-blue-500">Item 3</div>
-    <div class="bg-blue-500">Item 4</div>
+    <div class="bg-blue-500 p-4 text-center text-white">Item 1</div>
+    <div class="bg-blue-500 p-4 text-center text-white">Item 2</div>
+    <div class="bg-blue-500 p-4 text-center text-white">Item 3</div>
+    <div class="bg-blue-500 p-4 text-center text-white">Item 4</div>
 </div>`
     },
     {
-        title: 'JavaScript Array Filter',
-        description: 'A simple example of using the JavaScript filter method to filter an array.',
-        code: `const numbers = [1, 2, 3, 4, 5];
-const evenNumbers = numbers.filter(number => number % 2 === 0);
-console.log(evenNumbers); // [2, 4]`
+        title: 'Git Commit Command',
+        description: 'A basic example of how to create a commit in Git.',
+        code: `git commit -m "Your commit message here"`
+    },
+    {
+        title: 'Git Branch Command',
+        description: 'How to create a new branch in Git.',
+        code: `git branch new-branch-name`
+    },
+    {
+        title: 'NPM Install Package',
+        description: 'How to install a package using npm.',
+        code: `npm install package-name`
+    },
+    {
+        title: 'NPM Init Command',
+        description: 'How to initialize a new Node.js project using npm.',
+        code: `npm init`
     },
     {
         title: 'Basic HTML Structure',
@@ -154,6 +172,16 @@ console.log(evenNumbers); // [2, 4]`
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic HTML Page</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello, World!</h1>
