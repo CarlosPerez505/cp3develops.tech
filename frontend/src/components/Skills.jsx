@@ -49,9 +49,9 @@ const Skills = ({ theme }) => {
     };
 
     return (
-        <div className={`p-6 max-w-4xl mx-auto ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+        <div className={`w-full p-6 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
             {/* Display Skills in Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
                 {codeSamples.map((skill, index) => (
                     <motion.div
                         key={skill.title}
@@ -59,11 +59,10 @@ const Skills = ({ theme }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         onClick={() => handleCardClick(skill)}
+                        className="w-full"
                     >
                         <Card
-                            className={`cursor-pointer hover:shadow-lg transition-shadow ${
-                                theme === 'dark' ? 'bg-gray-800' : 'bg-white'
-                            } p-4`}
+                            className={`cursor-pointer hover:shadow-lg transition-shadow ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'} p-4`}
                         >
                             <CardHeader>
                                 <CardTitle className="flex items-center space-x-3 md:space-x-4">
@@ -82,7 +81,7 @@ const Skills = ({ theme }) => {
             {/* Fullscreen Modal for Code Sample */}
             {isModalOpen && selectedSkill && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-lg relative">
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-lg relative">
                         <button
                             className="absolute top-4 right-4 bg-red-500 hover:bg-red-700 text-white rounded-full p-2 focus:outline-none"
                             onClick={handleCloseModal}
