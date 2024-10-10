@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Make sure to adjust the path based on your project structure
-
 const codeSamples = [
     {
         title: 'React Component Example',
@@ -140,35 +137,34 @@ app.listen(3000, () => {
     <div class="bg-blue-500">Item 3</div>
     <div class="bg-blue-500">Item 4</div>
 </div>`
+    },
+    {
+        title: 'JavaScript Array Filter',
+        description: 'A simple example of using the JavaScript filter method to filter an array.',
+        code: `const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(number => number % 2 === 0);
+console.log(evenNumbers); // [2, 4]`
+    },
+    {
+        title: 'Basic HTML Structure',
+        description: 'A very basic HTML5 template to start any project.',
+        code: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>`
+    },
+    {
+        title: 'Console Log in JavaScript',
+        description: 'How to log a message to the console in JavaScript.',
+        code: `console.log('Hello, World!');`
     }
 ];
 
-const CodeSamples = ({ theme }) => {
-    return (
-        <div className={`p-6 max-w-4xl mx-auto text-black`}>
-            <h2 className="text-2xl font-semibold mb-4 text-black">Code Samples</h2>
-
-            {/* Code Samples Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {codeSamples.map((sample, index) => (
-                    <Card
-                        key={index}
-                        className={`cursor-pointer hover:shadow-lg transition-shadow ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'}`}
-                    >
-                        <CardHeader>
-                            <CardTitle>{sample.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p>{sample.description}</p>
-                            <pre className="bg-gray-100 p-2 rounded overflow-x-auto">
-                                <code>{sample.code}</code>
-                            </pre>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
-        </div>
-    );
-};
-
-export default CodeSamples;
+export default codeSamples;
