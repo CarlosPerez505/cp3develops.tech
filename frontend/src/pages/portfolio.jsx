@@ -39,7 +39,7 @@ const Portfolio = () => {
         >
             <Hero />
             <AboutMe />{/* Full-width hero section */}
-            <div className="w-full p-6"> {/* Updated width to w-full for full-width */}
+            <div className="w-full px-4 md:px-6"> {/* Adjusted padding to prevent horizontal scroll */}
                 <Projects theme={theme} /> {/* Projects section */}
 
                 <section className="mb-20 w-full"> {/* Full-width section */}
@@ -57,7 +57,7 @@ const Portfolio = () => {
                     {showGetStartedForm && <GetStartedForm onClose={closeGetStartedForm} />}
                 </section>
 
-                <section className="mb-20 w-full"> {/* Full-width section */}
+                <section id="contact" className="mb-20 w-full"> {/* Full-width section */}
                     <Contact />
                 </section>
             </div>

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import GetStartedForm from './GetStartedForm';
 import GetStartedButton from './GetStartedButton';
 
 // Register GSAP Plugin
@@ -10,8 +9,6 @@ if (typeof window !== 'undefined') {
 }
 
 const Hero = () => {
-    const [showGetStartedForm, setShowGetStartedForm] = useState(false);
-
     useEffect(() => {
         // Text Animation
         gsap.fromTo(
@@ -44,12 +41,12 @@ const Hero = () => {
         });
     }, []);
 
+    // Handle the click to scroll to the contact form
     const handleGetStartedClick = () => {
-        setShowGetStartedForm(true);
-    };
-
-    const closeGetStartedForm = () => {
-        setShowGetStartedForm(false);
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
@@ -72,8 +69,6 @@ const Hero = () => {
                     <GetStartedButton onClick={handleGetStartedClick} />
                 </div>
             </div>
-
-            {showGetStartedForm && <GetStartedForm onClose={closeGetStartedForm} />}
         </div>
     );
 };
