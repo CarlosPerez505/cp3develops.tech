@@ -39,7 +39,7 @@ const AboutMe = () => {
                 <div className="text-white text-center lg:text-left">
                     <h2 className="text-3xl font-bold mb-4 text-purple-400">Who am I?</h2>
                     <p className="text-lg mb-4 leading-relaxed">
-                        I'm a passionate web developer and engineer with over 11 years of professional mechanical experience, including work as a mechanic in the Army and at Baker Hughes. My background in mechanics has laid a strong foundation for my career as a engineer, where I apply my problem-solving skills and attention to detail to build innovative web applications.
+                        I'm a dedicated and motivated full stack web developer/engineer who builds mobile first web sites and applications. With over 11 years of professional mechanical experience, including work as a mechanic in the Army and at Baker Hughes. My background in mechanics has laid a strong foundation for my career as a engineer, where I apply my problem-solving skills and attention to detail to build innovative web applications.
                     </p>
                     <p className="text-lg mb-4 leading-relaxed">
                         I am currently working on <strong className="text-purple-400">The Red Palm Project</strong>, a web app designed to raise awareness and help locate missing Indigenous people in the Southwest using advanced mapping and data analysis techniques. I strive to make a meaningful impact on real-world problems by leveraging technology.
