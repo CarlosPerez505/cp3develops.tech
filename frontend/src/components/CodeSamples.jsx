@@ -145,23 +145,8 @@ app.listen(3000, () => {
     },
     {
         title: 'Git Commit Command',
-        description: 'A basic example of how to create a commit in Git.',
-        code: `git commit -m "Your commit message here"`
-    },
-    {
-        title: 'Git Branch Command',
-        description: 'How to create a new branch in Git.',
-        code: `git branch new-branch-name`
-    },
-    {
-        title: 'NPM Install Package',
-        description: 'How to install a package using npm.',
-        code: `npm install package-name`
-    },
-    {
-        title: 'NPM Init Command',
-        description: 'How to initialize a new Node.js project using npm.',
-        code: `npm init`
+        description: 'A basic example of my most used Git commands.',
+        code: `git add . git commit -m "Your commit message here git push"`
     },
     {
         title: 'Basic HTML Structure',
