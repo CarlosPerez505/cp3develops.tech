@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha'; // Google reCAPTCHA
+import ReCAPTCHA from 'react-google-recaptcha';
 import emailjs from 'emailjs-com';
+import SubmitButton from "@/components/ui/SubmitButton.jsx";
 
 const Contact = () => {
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
     const USER_ID = import.meta.env.VITE_USER_ID;
+    const RECAPTCHA_SITEKEY = import.meta.env.VITE_RECAPTCHA_SITEKEY;
 
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: '',
-
     });
     const [captchaVerified, setCaptchaVerified] = useState(false);
-    const [formStatus, setFormStatus] = useState(''); // State for form submission status
-    console.log(SERVICE_ID, TEMPLATE_ID, USER_ID);
+    const [formStatus, setFormStatus] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,15 +26,17 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (captchaVerified) {
+            setLoading(true);
             emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID)
                 .then((result) => {
                     console.log(result.text);
                     setFormStatus('Message sent successfully!');
-                    setFormData({ name: '', email: '', message: '' }); // Clear form
+                    setFormData({ name: '', email: '', message: '' });
                 }, (error) => {
                     console.error(error.text);
                     setFormStatus('Failed to send the message. Please try again later.');
-                });
+                })
+                .finally(() => setLoading(false));
         } else {
             alert('Please verify the CAPTCHA before submitting the form.');
         }
@@ -99,24 +102,20 @@ const Contact = () => {
 
                 <div className="mb-4">
                     <ReCAPTCHA
-                        sitekey="6LdWsJ8eAAAAALELblpqCXNgQiCl-HWMjF0eL11G"
+                        sitekey={RECAPTCHA_SITEKEY}
                         onChange={handleCaptchaChange}
                     />
                 </div>
 
                 <div className="flex items-center justify-between">
-                    <button
-                        type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        disabled={!captchaVerified}
-                    >
-                        Send Message
-                    </button>
+                    <SubmitButton loading={loading} />
                 </div>
             </form>
 
             {formStatus && (
-                <p className="mt-4 text-center text-sm text-green-500">{formStatus}</p>
+                <p className={`mt-4 text-center text-sm ${formStatus.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+                    {formStatus}
+                </p>
             )}
         </div>
     );

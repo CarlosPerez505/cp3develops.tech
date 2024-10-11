@@ -86,7 +86,7 @@ const Projects = ({ theme }) => {
     const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
 
     return (
-        <section className="w-fullb-20"> {/* Full-width section */}
+        <section className="w-fullb-20 mt-6"> {/* Full-width section */}
             <h2 className="text-3xl font-semibold mb-20 text-center">Featured Projects</h2>
             <div className="flex justify-center">
                 <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
