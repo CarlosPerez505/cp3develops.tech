@@ -11,14 +11,15 @@ const PricingPlan = ({ theme, onGetStartedClick }) => {
                 'An opportunity for new businesses to get a high-quality website up and running with very little upfront cost.',
             features: [
                 'Custom Website Design',
-                'Purchase a domain and hosting for 3 months (Godaddy, Namecheap, etc.)',
+                'Purchase a domain and hosting for 3 months (Godaddy, Namecheap, etc.)' +
+                'github pages (free) ',
                 'Powered by Your Company Badge',
             ],
             buttonLabel: 'Get Started',
         },
         {
             name: 'Growth Plan',
-            price: '$350/month',
+            price: '$350+/month',
             description:
                 'Perfect for growing businesses that need ongoing support and improvements.',
             features: [

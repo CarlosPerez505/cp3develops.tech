@@ -60,7 +60,8 @@ const Hero = () => {
             {/* Main Content */}
             <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-56 text-center">
                 <h1 className="hero-text text-5xl font-bold tracking-tight text-white sm:text-7xl">
-                    Hello, I'm Carlos, a Full Stack Web Developer!
+                    Hello, I'm Carlos, a <br/>
+                    FullStack Web Developer!
                 </h1>
                 <p className="hero-text mt-6 text-lg leading-8 text-gray-100 sm:text-xl">
                     Let me help make your vision of a website come to life.
