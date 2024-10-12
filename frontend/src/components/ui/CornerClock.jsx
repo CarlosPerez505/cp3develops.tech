@@ -39,9 +39,11 @@ const CornerCountdown = () => {
     };
 
     return (
-        <div className="fixed top-4 right-4 p-4 rounded-lg shadow-lg bg-gradient-to-br from-gray-900 via-purple-800 to-gray-900">
-            <div className="text-center font-mono text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl">
-                <span className="glow-text">{formatTime(timeRemaining)}</span>
+        <div className="fixed top-4 right-4 p-6 rounded-lg shadow-lg bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800">
+            <div className="text-center font-mono text-4xl text-white animate-pulse">
+                <span className="block text-glow">
+                    {formatTime(timeRemaining)}
+                </span>
             </div>
         </div>
     );

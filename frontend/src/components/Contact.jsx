@@ -26,7 +26,7 @@ const Contact = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (captchaVerified) {
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target, 'YOUR_USER_ID')
+            emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID)
                 .then((result) => {
                     console.log(result.text);
                     setFormStatus('Message sent successfully!');
@@ -47,6 +47,16 @@ const Contact = () => {
     return (
         <div className="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full max-w-lg mx-auto">
             <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+
+            {/* Updated text with larger font, bolding, and attention-grabbing style */}
+            <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6">
+                <p className="text-lg font-bold text-gray-900">
+                    🎉 All users who register will be <span className="text-blue-500">entered into our launch plan</span> and will receive <span className="text-green-500">three months of free access</span>!
+                    If you decide to continue after the trial period, a subscription fee will be <span className="text-red-500">negotiated</span>.
+                    The contest ends when the <span className="text-purple-500 font-extrabold">clock reaches 0</span>. Hurry up and join today! ⏰
+                </p>
+            </div>
+
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">

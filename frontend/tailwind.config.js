@@ -23,6 +23,11 @@ module.exports = {
         rust: '#b7410e',  // Rusty color
         industrialBlue: '#2c3e50',  // Industrial blue color
         gearGold: '#d4af37',  // Gold for special accents (e.g., interactive elements)
+        purplePrimary: '#9b59b6', // Your favorite purple color
+        purpleSecondary: '#8e44ad', // Secondary purple
+        white: '#ffffff',
+        black: '#000000',
+        darkBackground: '#111111', // Black background
       },
     },
   },

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import GetStartedButton from "@/components/GetStartedButton.jsx";
 
@@ -11,8 +11,8 @@ const PricingPlan = ({ theme, onGetStartedClick }) => {
                 'An opportunity for new businesses to get a high-quality website up and running with very little upfront cost.',
             features: [
                 'Custom Website Design',
-                'Purchase a domain and hosting for 3 months (Godaddy, Namecheap, etc.)' +
-                'github pages (free) ',
+                'Purchase a domain and hosting (Godaddy, Namecheap, etc.)',
+                'GitHub Pages (free)',
                 'Powered by Your Company Badge',
             ],
             buttonLabel: 'Get Started',
@@ -43,6 +43,13 @@ const PricingPlan = ({ theme, onGetStartedClick }) => {
         },
     ];
 
+    const handleGetStartedClick = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className={`p-8 ${theme === 'dark' ? 'bg-dark-gradient' : 'bg-light-gradient'} text-white`}>
             <h2 className="text-4xl font-bold text-center mb-12">Our Pricing Plans</h2>
@@ -65,7 +72,8 @@ const PricingPlan = ({ theme, onGetStartedClick }) => {
                                 </li>
                             ))}
                         </ul>
-                        <GetStartedButton onClick={onGetStartedClick} />
+                        {/* The button will trigger the scroll to the contact form */}
+                        <GetStartedButton onClick={handleGetStartedClick} />
                     </motion.div>
                 ))}
             </div>

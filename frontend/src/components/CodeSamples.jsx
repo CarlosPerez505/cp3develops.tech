@@ -146,7 +146,7 @@ app.listen(3000, () => {
     {
         title: 'Git Commit Command',
         description: 'A basic example of my most used Git commands.',
-        code: `git add . git commit -m "Your commit message here git push"`
+        code: `git add . git commit -m "Your commit message here" git push`
     },
     {
         title: 'Basic HTML Structure',

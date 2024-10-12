@@ -38,9 +38,11 @@ const Portfolio = () => {
         <div
             className={`min-h-screen w-full transition-colors duration-300 overflow-x-hidden ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}
         >
+            {/* Theme Toggle Button */}
+
             <Hero />
-            <CornerClock/>
-            <AboutMe />{/* Full-width hero section */}
+            <CornerClock />
+            <AboutMe /> {/* Full-width hero section */}
             <div className="w-full px-4 md:px-6"> {/* Adjusted padding to prevent horizontal scroll */}
                 <Projects theme={theme} /> {/* Projects section */}
 
@@ -50,14 +52,15 @@ const Portfolio = () => {
                     </Suspense>
                 </section>
 
-                <section id="pricing" className="mb-20 w-full"> {/* Full-width section */}
+                <section className="mb-20 w-full"> {/* Full-width section */}
                     <PricingPlan />
                 </section>
 
                 <section id="contact" className="mb-20 w-full"> {/* Full-width section */}
-                    <Contact />
+                    <Contact theme={theme} /> {/* Pass theme prop for consistency */}
                 </section>
             </div>
+
             <Footer /> {/* Full-width Footer */}
         </div>
     );

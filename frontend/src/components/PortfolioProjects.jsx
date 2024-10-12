@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { motion } from 'framer-motion';
 import { Badge } from '../components/ui/badge';
@@ -19,7 +19,7 @@ const Projects = ({ theme }) => {
                 'Showcases various projects and code snippets',
             ],
             tags: ['JavaScript', 'GitHub Pages', 'Portfolio'],
-            link: 'https://github.com/CarlosPerez505/CarlosPerez505.github.io',
+            link: 'https://CarlosPerez505.github.io',
         },
         {
             title: 'RedPalmProject',
@@ -69,24 +69,13 @@ const Projects = ({ theme }) => {
             tags: ['Next.js', 'Tailwind CSS'],
             link: 'https://github.com/CarlosPerez505/portfolio-next.js',
         },
-        {
-            title: 'redpalm-next',
-            description: 'Next.js project for Red Palm.',
-            category: 'fullstack',
-            details: [
-                'Built with Next.js and Tailwind CSS',
-                'Includes user authentication',
-                'Responsive layout',
-            ],
-            tags: ['Next.js', 'Tailwind CSS', 'Node.js'],
-            link: 'https://github.com/CarlosPerez505/redpalm-next',
-        },
+        // Add other projects...
     ];
 
     const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
 
     return (
-        <section className="w-fullb-20 mt-6"> {/* Full-width section */}
+        <section className="w-fullb-20"> {/* Full-width section */}
             <h2 className="text-3xl font-semibold mb-20 text-center">Featured Projects</h2>
             <div className="flex justify-center">
                 <Tabs defaultValue="All" onValueChange={(value) => setFilter(value)}>
