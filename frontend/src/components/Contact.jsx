@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+import emailjs from 'emailjs-com'; // EmailJS to send emails
 
 const Contact = () => {
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID || '';
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID || '';
     const USER_ID = import.meta.env.VITE_USER_ID || '';
-    const RECAPTCHA_SITE_KEY = '6Lc5CGAqAAAAAGqgbFMrgO9f1b-KF5Qm03tda9JT'; // Replace with your site key
+    const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY || '';
 
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: '',
     });
+
     const [formStatus, setFormStatus] = useState('');
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
@@ -48,41 +49,39 @@ const Contact = () => {
         return valid;
     };
 
-    const handleReCAPTCHA = async () => {
-        try {
-            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
-            console.log('reCAPTCHA token:', token);
-            sendEmail(token);
-        } catch (error) {
-            console.error('reCAPTCHA error:', error);
-            setFormStatus('Failed to verify reCAPTCHA.');
-        }
-    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    const sendEmail = async (token) => {
         if (!validateForm()) return;
 
-        setLoading(true);
         try {
-            const result = await emailjs.send(
-                SERVICE_ID,
-                TEMPLATE_ID,
-                {
-                    ...formData,
-                    'g-recaptcha-response': token, // Pass the token to EmailJS
-                },
-                USER_ID
-            );
+            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
 
-            console.log('Email sent:', result.text);
-            setFormStatus('Message sent successfully!');
-            setFormData({ name: '', email: '', message: '' });
-            setErrors({});
+            const response = await fetch('/api/verifyRecaptcha', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                const emailResult = await emailjs.send(
+                    SERVICE_ID,
+                    TEMPLATE_ID,
+                    formData,
+                    USER_ID
+                );
+                setFormStatus('Message sent successfully!');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                setFormStatus('reCAPTCHA verification failed. Please try again.');
+            }
         } catch (error) {
-            console.error('EmailJS error:', error);
-            setFormStatus('Failed to send the message.');
-        } finally {
-            setLoading(false);
+            console.error('Error:', error);
+            setFormStatus('Failed to send the message. Please try again.');
         }
     };
 
@@ -90,7 +89,7 @@ const Contact = () => {
         <div className="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full max-w-lg mx-auto">
             <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
 
-            <form id="contact-form">
+            <form onSubmit={handleSubmit} id="contact-form">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                         Name
@@ -149,28 +148,20 @@ const Contact = () => {
 
                 <div className="flex items-center justify-between">
                     <button
-                        type="button"
-                        className="g-recaptcha bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        data-sitekey={RECAPTCHA_SITE_KEY}
-                        data-callback="handleReCAPTCHA"
-                        data-action="submit"
-                        onClick={handleReCAPTCHA}
+                        type="submit"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         disabled={loading}
                     >
                         {loading ? 'Sending...' : 'Send Message'}
                     </button>
                 </div>
-            </form>
 
-            {formStatus && (
-                <p
-                    className={`mt-4 text-center text-sm ${
-                        formStatus.includes('successfully') ? 'text-green-500' : 'text-red-500'
-                    }`}
-                >
-                    {formStatus}
-                </p>
-            )}
+                {formStatus && (
+                    <p className={`mt-4 text-center text-sm ${formStatus.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+                        {formStatus}
+                    </p>
+                )}
+            </form>
         </div>
     );
 };
