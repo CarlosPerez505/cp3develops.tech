@@ -34,28 +34,34 @@ const Contact = () => {
             return;
         }
 
-        setLoading(true); // Set loading state
+        setLoading(true);
         try {
             const result = await emailjs.sendForm(
                 SERVICE_ID,
                 TEMPLATE_ID,
                 e.target,
-                USER_ID
+                USER_ID,
+                { 'g-recaptcha-response': recaptchaToken } // Pass reCAPTCHA token
             );
             console.log('Email sent:', result.text);
             setFormStatus('Message sent successfully!');
             setFormData({ name: '', email: '', message: '' }); // Clear form
         } catch (error) {
             console.error('Error:', error);
-            setFormStatus(`Failed to send the message. Error: ${error.text || 'Unknown error'}`);
+            setFormStatus(`Failed to send the message: ${error.text || 'Unknown error'}`);
         } finally {
-            setLoading(false); // Reset loading state
+            setLoading(false);
         }
     };
 
+
+    const [recaptchaToken, setRecaptchaToken] = useState('');
+
     const handleCaptchaChange = (value) => {
         setCaptchaVerified(!!value);
+        setRecaptchaToken(value); // Store the reCAPTCHA token
     };
+
 
     return (
         <div className="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full max-w-lg mx-auto">
@@ -119,7 +125,7 @@ const Contact = () => {
 
                 <div className="mb-4">
                     <ReCAPTCHA
-                        sitekey="6LdWsJ8eAAAAALELblpqCXNgQiCl-HWMjF0eL11G"
+                        sitekey={import.meta.env.VITE_RECAPTCHA_SITEKEY}
                         onChange={handleCaptchaChange}
                     />
                 </div>
