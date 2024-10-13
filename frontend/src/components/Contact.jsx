@@ -4,12 +4,10 @@ import emailjs from 'emailjs-com';
 import SubmitButton from "@/components/ui/SubmitButton.jsx";
 
 const Contact = () => {
-
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID || '';
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID || '';
     const USER_ID = import.meta.env.VITE_USER_ID || '';
 
-    // Log to ensure environment variables are loaded
     console.log('Service ID:', SERVICE_ID, 'Template ID:', TEMPLATE_ID, 'User ID:', USER_ID);
 
     const [formData, setFormData] = useState({
@@ -18,12 +16,18 @@ const Contact = () => {
         message: '',
     });
     const [captchaVerified, setCaptchaVerified] = useState(false);
-    const [formStatus, setFormStatus] = useState(''); // State for form submission status
-    const [loading, setLoading] = useState(false); // Track form submission state
+    const [recaptchaToken, setRecaptchaToken] = useState('');
+    const [formStatus, setFormStatus] = useState(''); // Status of form submission
+    const [loading, setLoading] = useState(false); // Loading state
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+    };
+
+    const handleCaptchaChange = (value) => {
+        setCaptchaVerified(!!value); // Check if the CAPTCHA is valid
+        setRecaptchaToken(value); // Store the token for form submission
     };
 
     const handleSubmit = async (e) => {
@@ -36,32 +40,23 @@ const Contact = () => {
 
         setLoading(true);
         try {
+            const form = document.getElementById('contact-form'); // Reference the form
             const result = await emailjs.sendForm(
                 SERVICE_ID,
                 TEMPLATE_ID,
-                e.target,
-                USER_ID,
-                { 'g-recaptcha-response': recaptchaToken } // Pass reCAPTCHA token
+                form,
+                USER_ID
             );
             console.log('Email sent:', result.text);
             setFormStatus('Message sent successfully!');
-            setFormData({ name: '', email: '', message: '' }); // Clear form
+            setFormData({ name: '', email: '', message: '' }); // Clear the form
         } catch (error) {
             console.error('Error:', error);
             setFormStatus(`Failed to send the message: ${error.text || 'Unknown error'}`);
         } finally {
-            setLoading(false);
+            setLoading(false); // Reset loading state
         }
     };
-
-
-    const [recaptchaToken, setRecaptchaToken] = useState('');
-
-    const handleCaptchaChange = (value) => {
-        setCaptchaVerified(!!value);
-        setRecaptchaToken(value); // Store the reCAPTCHA token
-    };
-
 
     return (
         <div className="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4 w-full max-w-lg mx-auto">
@@ -75,7 +70,9 @@ const Contact = () => {
                 </p>
             </div>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="contact-form">
+                <input type="hidden" name="g-recaptcha-response" value={recaptchaToken} />
+
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                         Name
