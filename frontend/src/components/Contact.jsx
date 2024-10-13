@@ -54,9 +54,14 @@ const Contact = () => {
 
         if (!validateForm()) return;
 
+        setLoading(true);
+        setFormStatus(''); // Reset form status
+
         try {
+            // Execute reCAPTCHA v3 and get token
             const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
 
+            // Call the backend to verify reCAPTCHA token
             const response = await fetch('/api/verifyRecaptcha', {
                 method: 'POST',
                 headers: {
@@ -68,12 +73,8 @@ const Contact = () => {
             const result = await response.json();
 
             if (result.success) {
-                const emailResult = await emailjs.send(
-                    SERVICE_ID,
-                    TEMPLATE_ID,
-                    formData,
-                    USER_ID
-                );
+                // Send the email via EmailJS
+                await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, USER_ID);
                 setFormStatus('Message sent successfully!');
                 setFormData({ name: '', email: '', message: '' });
             } else {
@@ -82,6 +83,8 @@ const Contact = () => {
         } catch (error) {
             console.error('Error:', error);
             setFormStatus('Failed to send the message. Please try again.');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -157,7 +160,11 @@ const Contact = () => {
                 </div>
 
                 {formStatus && (
-                    <p className={`mt-4 text-center text-sm ${formStatus.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>
+                    <p
+                        className={`mt-4 text-center text-sm ${
+                            formStatus.includes('successfully') ? 'text-green-500' : 'text-red-500'
+                        }`}
+                    >
                         {formStatus}
                     </p>
                 )}
