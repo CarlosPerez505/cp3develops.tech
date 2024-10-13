@@ -12,9 +12,9 @@ const Contact = () => {
         email: '',
         message: '',
     });
-    const [errors, setErrors] = useState({});
     const [formStatus, setFormStatus] = useState('');
     const [loading, setLoading] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,13 +25,11 @@ const Contact = () => {
         let formErrors = {};
         let valid = true;
 
-        // Validate Name
         if (!formData.name.trim()) {
             formErrors.name = 'Name is required';
             valid = false;
         }
 
-        // Validate Email with Regex
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!formData.email) {
             formErrors.email = 'Email is required';
@@ -41,7 +39,6 @@ const Contact = () => {
             valid = false;
         }
 
-        // Validate Message
         if (!formData.message.trim()) {
             formErrors.message = 'Message is required';
             valid = false;
@@ -51,15 +48,29 @@ const Contact = () => {
         return valid;
     };
 
-    const onSubmit = async (token) => {
-        if (!validateForm()) return; // Stop if form is invalid
+    const handleReCAPTCHA = async () => {
+        try {
+            const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' });
+            console.log('reCAPTCHA token:', token);
+            sendEmail(token);
+        } catch (error) {
+            console.error('reCAPTCHA error:', error);
+            setFormStatus('Failed to verify reCAPTCHA.');
+        }
+    };
+
+    const sendEmail = async (token) => {
+        if (!validateForm()) return;
 
         setLoading(true);
         try {
             const result = await emailjs.send(
                 SERVICE_ID,
                 TEMPLATE_ID,
-                { ...formData, 'g-recaptcha-response': token },
+                {
+                    ...formData,
+                    'g-recaptcha-response': token, // Pass the token to EmailJS
+                },
                 USER_ID
             );
 
@@ -68,19 +79,11 @@ const Contact = () => {
             setFormData({ name: '', email: '', message: '' });
             setErrors({});
         } catch (error) {
-            console.error('Error:', error);
+            console.error('EmailJS error:', error);
             setFormStatus('Failed to send the message.');
         } finally {
             setLoading(false);
         }
-    };
-
-    const handleReCAPTCHA = () => {
-        grecaptcha.ready(() => {
-            grecaptcha
-                .execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
-                .then((token) => onSubmit(token));
-        });
     };
 
     return (
