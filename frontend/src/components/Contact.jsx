@@ -5,9 +5,7 @@ const Contact = () => {
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID || '';
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID || '';
     const USER_ID = import.meta.env.VITE_USER_ID || '';
-    const RECAPTCHA_SITEKEY = import.meta.env.VITE_RECAPTCHA_SITEKEY || '';
-
-    console.log('Service ID:', SERVICE_ID, 'Template ID:', TEMPLATE_ID, 'User ID:', USER_ID);
+    const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITEKEY || 'your_site_key'; // Your reCAPTCHA v3 site key
 
     const [formData, setFormData] = useState({
         name: '',
@@ -56,9 +54,8 @@ const Contact = () => {
         if (!validateForm()) return;
 
         setLoading(true);
-
         try {
-            const token = await executeRecaptcha('submit');
+            const token = await executeRecaptcha('submit'); // Generate reCAPTCHA token
             console.log('reCAPTCHA token:', token);
 
             const form = document.getElementById('contact-form');
@@ -66,7 +63,8 @@ const Contact = () => {
                 SERVICE_ID,
                 TEMPLATE_ID,
                 form,
-                USER_ID
+                USER_ID,
+                { 'g-recaptcha-response': token } // Send token with the request
             );
 
             console.log('Email sent:', result.text);
@@ -83,9 +81,9 @@ const Contact = () => {
 
     const executeRecaptcha = async (action) => {
         return new Promise((resolve, reject) => {
-            grecaptcha.enterprise.ready(() => {
-                grecaptcha.enterprise
-                    .execute(RECAPTCHA_SITEKEY, { action })
+            grecaptcha.ready(() => {
+                grecaptcha
+                    .execute(RECAPTCHA_SITE_KEY, { action })
                     .then(resolve)
                     .catch(reject);
             });
