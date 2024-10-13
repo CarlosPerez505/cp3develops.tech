@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha'; // Google reCAPTCHA
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
     const SERVICE_ID = import.meta.env.VITE_SERVICE_ID || '';
     const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID || '';
     const USER_ID = import.meta.env.VITE_USER_ID || '';
+    const RECAPTCHA_SITEKEY = import.meta.env.VITE_RECAPTCHA_SITEKEY || '';
 
     console.log('Service ID:', SERVICE_ID, 'Template ID:', TEMPLATE_ID, 'User ID:', USER_ID);
 
@@ -15,8 +15,6 @@ const Contact = () => {
         message: '',
     });
     const [errors, setErrors] = useState({});
-    const [captchaVerified, setCaptchaVerified] = useState(false);
-    const [recaptchaToken, setRecaptchaToken] = useState('');
     const [formStatus, setFormStatus] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -29,13 +27,11 @@ const Contact = () => {
         let formErrors = {};
         let valid = true;
 
-        // Name validation
         if (!formData.name.trim()) {
             formErrors.name = 'Name is required';
             valid = false;
         }
 
-        // Email validation (simple regex for valid email format)
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!formData.email) {
             formErrors.email = 'Email is required';
@@ -45,7 +41,6 @@ const Contact = () => {
             valid = false;
         }
 
-        // Message validation
         if (!formData.message.trim()) {
             formErrors.message = 'Message is required';
             valid = false;
@@ -58,15 +53,14 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!validateForm()) return; // Stop if form is not valid
-
-        if (!captchaVerified) {
-            alert('Please verify the CAPTCHA before submitting the form.');
-            return;
-        }
+        if (!validateForm()) return;
 
         setLoading(true);
+
         try {
+            const token = await executeRecaptcha('submit');
+            console.log('reCAPTCHA token:', token);
+
             const form = document.getElementById('contact-form');
             const result = await emailjs.sendForm(
                 SERVICE_ID,
@@ -74,10 +68,11 @@ const Contact = () => {
                 form,
                 USER_ID
             );
+
             console.log('Email sent:', result.text);
             setFormStatus('Message sent successfully!');
-            setFormData({ name: '', email: '', message: '' }); // Clear form
-            setErrors({}); // Clear errors after successful submission
+            setFormData({ name: '', email: '', message: '' });
+            setErrors({});
         } catch (error) {
             console.error('Error:', error);
             setFormStatus(`Failed to send the message: ${error.text || 'Unknown error'}`);
@@ -86,9 +81,15 @@ const Contact = () => {
         }
     };
 
-    const handleCaptchaChange = (value) => {
-        setCaptchaVerified(!!value);
-        setRecaptchaToken(value); // Store the token for form submission
+    const executeRecaptcha = async (action) => {
+        return new Promise((resolve, reject) => {
+            grecaptcha.enterprise.ready(() => {
+                grecaptcha.enterprise
+                    .execute(RECAPTCHA_SITEKEY, { action })
+                    .then(resolve)
+                    .catch(reject);
+            });
+        });
     };
 
     return (
@@ -96,8 +97,6 @@ const Contact = () => {
             <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
 
             <form onSubmit={handleSubmit} id="contact-form">
-                <input type="hidden" name="g-recaptcha-response" value={recaptchaToken} />
-
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
                         Name
@@ -154,18 +153,11 @@ const Contact = () => {
                     {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                 </div>
 
-                <div className="mb-4">
-                    <ReCAPTCHA
-                        sitekey={import.meta.env.VITE_RECAPTCHA_SITEKEY}
-                        onChange={handleCaptchaChange}
-                    />
-                </div>
-
                 <div className="flex items-center justify-between">
                     <button
                         type="submit"
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        disabled={!captchaVerified || loading}
+                        disabled={loading}
                     >
                         {loading ? 'Sending...' : 'Send Message'}
                     </button>
@@ -186,4 +178,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
