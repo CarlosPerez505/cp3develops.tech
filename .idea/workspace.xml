@@ -5,318 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9badf549-de65-461e-861c-b746f0d51ff9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/css3-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/express-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/git-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/html5-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/javascript-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/mysql-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/nodedotjs-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/npm-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/openai-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/react.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/tailwindcss-color.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/logos/ubuntu-color.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/portfolio.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/portfolio.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.bin/esparse" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.bin/esparse.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.bin/esparse.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.bin/esvalidate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.bin/esvalidate.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.bin/esvalidate.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/@radix-ui_react-tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/@radix-ui_react-tabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-annotate-as-pure/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-annotate-as-pure/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-annotate-as-pure/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-annotate-as-pure/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-annotate-as-pure/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-annotate-as-pure/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-annotate-as-pure/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/decorators-2018-09.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/decorators-2018-09.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/decorators.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/decorators.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/features.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/features.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/fields.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/fields.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/misc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/misc.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/typescript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/lib/typescript.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-member-expression-to-functions/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-member-expression-to-functions/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-member-expression-to-functions/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-member-expression-to-functions/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-member-expression-to-functions/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-member-expression-to-functions/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-member-expression-to-functions/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-optimise-call-expression/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-optimise-call-expression/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-optimise-call-expression/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-optimise-call-expression/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-optimise-call-expression/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-optimise-call-expression/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-optimise-call-expression/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-replace-supers/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-replace-supers/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-replace-supers/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-replace-supers/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-replace-supers/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-replace-supers/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-replace-supers/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-skip-transparent-expression-wrappers/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-syntax-typescript/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-syntax-typescript/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-syntax-typescript/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-syntax-typescript/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-syntax-typescript/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-syntax-typescript/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-syntax-typescript/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/const-enum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/const-enum.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/enum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/enum.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/global-types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/global-types.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/index.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/namespace.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/lib/namespace.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/plugin-transform-typescript/tsconfig.tsbuildinfo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/babel-core.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/babel-core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/babel-core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/babel.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/babel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/babel.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/core.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es-proposals.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es-proposals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es-proposals.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2016.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2016.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2016.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2017.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2017.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2017.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2018.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2018.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2018.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2019.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2019.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2019.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2020.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2020.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2020.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2021.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2021.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2021.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2022.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2022.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es2022.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es6.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/es6.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/esprima.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/esprima.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/esprima.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/flow.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/flow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/flow.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/jsx.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/jsx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/jsx.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/core.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/core.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2016.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2016.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2016.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2020.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2020.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2020.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2021.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2021.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/operators/es2021.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/type-annotations.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/type-annotations.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/type-annotations.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/typescript.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/typescript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/def/typescript.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/equiv.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/equiv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/equiv.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/fork.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/fork.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/fork.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/builders.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/builders.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/builders.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/kinds.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/kinds.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/kinds.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/namedTypes.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/namedTypes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/namedTypes.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/visitor.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/visitor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/gen/visitor.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/main.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/node-path.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/node-path.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/node-path.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/path-visitor.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/path-visitor.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/path-visitor.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/path.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/path.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/path.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/scope.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/scope.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/scope.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/shared.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/shared.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/shared.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/types.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/lib/types.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/ast-types/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/esprima/ChangeLog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/esprima/LICENSE.BSD" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/esprima/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/esprima/bin/esparse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/esprima/bin/esvalidate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/esprima/dist/esprima.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/esprima/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash._reinterpolate/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash._reinterpolate/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash._reinterpolate/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash._reinterpolate/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.template/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.template/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.template/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.template/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.templatesettings/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.templatesettings/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.templatesettings/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/lodash.templatesettings/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/.github/dependabot.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/.github/workflows/main.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/.prettierignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/.prettierrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/example/add-braces" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/example/generic-identity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/example/identity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/example/to-while" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/comments.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/comments.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/fast-path.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/fast-path.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/lines.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/lines.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/mapping.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/mapping.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/options.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/parser.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/parser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/patcher.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/patcher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/printer.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/printer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/util.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/lib/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/main.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/_babel_options.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/_babel_options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/acorn.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/acorn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/babel-ts.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/babel-ts.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/babel.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/babel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/babylon.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/babylon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/esprima.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/esprima.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/flow.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/flow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/typescript.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/parsers/typescript.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/recast/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/shadcn-ui/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/shadcn-ui/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/shadcn-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/shadcn-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/dist/source-map.debug.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/dist/source-map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/dist/source-map.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/dist/source-map.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/array-set.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/base64-vlq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/base64.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/binary-search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/mapping-list.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/quick-sort.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/source-map-consumer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/source-map-generator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/source-node.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/lib/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/source-map.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/source-map/source-map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/CopyrightNotice.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/SECURITY.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/modules/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/modules/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/modules/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/tslib.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/tslib.es6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/tslib.es6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/tslib.es6.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/tslib.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/node_modules/tslib/tslib.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/portfolio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/portfolio.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/api/verifyRecaptcha.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/api/verifyRecaptcha.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="tsconfig.json" />
         <option value="JSX File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -343,7 +35,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/CarlosPerez505/portfolio.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/CarlosPerez505/CarlosPerez505.github.io.git&quot;,
     &quot;accountId&quot;: &quot;8191d249-44fa-4ac0-a9f1-c15881f2f521&quot;
   }
 }</component>
@@ -367,16 +59,17 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "gh-pages",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.nodejs.core.library.configured.version": "20.15.0",
     "javascript.nodejs.core.library.typings.version": "20.15.0",
-    "last_opened_file_path": "C:/Users/cp3de/WebstormProjects/portfolio/frontend/src/assets/logos",
+    "last_opened_file_path": "C:/Users/cp3de/WebstormProjects/TheRedPalmProject_backup",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "npm.dev.executor": "Run",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.1.5\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
@@ -384,17 +77,36 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\cp3de\WebstormProjects\CarlosPerez505.github.io\frontend" />
       <recent name="C:\Users\cp3de\WebstormProjects\portfolio\frontend\src\assets\logos" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\cp3de\WebstormProjects\CarlosPerez505.github.io" />
       <recent name="C:\Users\cp3de\WebstormProjects\portfolio\frontend\src\assets\logos" />
       <recent name="C:\Users\cp3de\WebstormProjects\portfolio\frontend\src\components" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.19072.23" />
       </set>
     </attachedChunks>
   </component>
@@ -408,6 +120,8 @@
       <updated>1725652089323</updated>
       <workItem from="1725652090444" duration="5660000" />
       <workItem from="1725657889359" duration="20163000" />
+      <workItem from="1728483917508" duration="45573000" />
+      <workItem from="1728766494324" duration="23381000" />
     </task>
     <servers />
   </component>

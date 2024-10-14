@@ -52,13 +52,8 @@ const Portfolio = () => {
                     </Suspense>
                 </section>
 
-                <section className="mb-20 w-full"> {/* Full-width section */}
-                    <PricingPlan />
-                </section>
 
-                <section id="contact" className="mb-20 w-full"> {/* Full-width section */}
-                    <Contact theme={theme} /> {/* Pass theme prop for consistency */}
-                </section>
+
             </div>
 
             <Footer /> {/* Full-width Footer */}
