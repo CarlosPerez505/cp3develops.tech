@@ -8,8 +8,7 @@ import FreeWebSitePromo from "@/components/FreeWebSitePromo.jsx";
 import GetStartedButton from "@/components/GetStartedButton.jsx";
 import Footer from '@/components/Footer';
 import Projects from '@/components/PortfolioProjects.jsx';
-import CornerClock from "@/components/ui/CornerClock.jsx";
-import MyMapComponent from "@/components/Map.jsx";
+import MyMapComponent from "@/components/Map.jsx"; // Removed Clock Component
 
 // Lazy load Skills component to optimize performance
 const Skills = lazy(() => import('@/components/Skills'));
@@ -36,29 +35,27 @@ const Portfolio = () => {
             {/* Hero Section */}
             <Hero />
 
-            {/* Corner Clock */}
-            <CornerClock />
-
             {/* About Me Section */}
-            <AboutMe className="px-4 md:px-6" />
+            <section className="mb-20 w-full px-4 md:px-6">
+                <AboutMe />
+            </section>
 
             {/* Projects Section */}
             <div className="w-full px-4 md:px-6">
                 <Projects theme={theme} />
-
-
-
-                {/* Skills Section */}
-                <section className="mb-20 w-full">
-                    <Suspense fallback={<div>Loading skills...</div>}>
-                        <Skills theme={theme} />
-                    </Suspense>
-                </section>
-                {/* Map Section */}
-                <section className="my-10">
-                    <MyMapComponent />
-                </section>
             </div>
+
+            {/* Skills Section */}
+            <section className="mb-20 w-full">
+                <Suspense fallback={<div>Loading skills...</div>}>
+                    <Skills theme={theme} />
+                </Suspense>
+            </section>
+
+            {/* Map Section */}
+            <section className="my-10">
+                <MyMapComponent theme={theme} />
+            </section>
 
             {/* Footer */}
             <Footer />

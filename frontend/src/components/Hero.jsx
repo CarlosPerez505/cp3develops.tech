@@ -67,7 +67,7 @@ const Hero = () => {
                     FullStack Web Developer!
                 </h1>
                 <p className="hero-text mt-6 text-lg leading-8 text-gray-100 sm:text-xl">
-                    Let me help make your vision of a website come to life.
+                    Let me help make your vision of a website come to life, scroll down to learn more.
                 </p>
             </div>
         </div>
