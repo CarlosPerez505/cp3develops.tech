@@ -35,9 +35,7 @@ const Footer = () => {
 
             <div className="mt-6 text-sm max-w-md mx-auto">
                 <p>
-                    Disclaimer: a lucky winner will be chosen at random. No purchase necessary to enter or win.
-                    The odds of winning depend on the number of entries received. Winners will be contacted via
-                    email or social media. By participating, you agree to comply with all terms and conditions.
+                    Thank you for visiting!
                 </p>
             </div>
         </footer>
