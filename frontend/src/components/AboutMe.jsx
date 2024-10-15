@@ -36,7 +36,7 @@ const AboutMe = () => {
             {/* Content that appears on scroll */}
             <div className="about-content bg-black bg-opacity-70 p-8 rounded-lg shadow-lg relative z-10">
                 {/* Text Section */}
-                <div className="text-white text-center lg:text-left">
+                <div className="text-white text-left lg:text-left">
                     <h2 className="text-3xl font-bold mb-4 text-purple-400">Who am I?</h2>
                     <p className="text-lg mb-4 leading-relaxed">
                         I'm a dedicated and motivated full stack web developer/engineer who builds mobile first, interactive  web sites and web applications. With over 11 years of professional mechanical experience, including work as a mechanic in the Army and at Baker Hughes. My background in mechanics has laid a strong foundation for my career as a engineer, where I apply my problem-solving skills and attention to detail to build innovative web applications.
