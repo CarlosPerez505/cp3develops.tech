@@ -50,19 +50,20 @@ const Hero = () => {
             <div
                 className="background-image absolute inset-0 -z-10"
                 style={{
-                    backgroundImage: `url('/logos/nm-lights.png')`,
+                    backgroundImage: `url('https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/northern-lights-courtesy-brad-berry-663ee503c2d6b.jpg?crop=0.75xw:1xh;center,top&resize=660:*')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
-                    height: '100%',
-                    width: '100%',
+                    height: '100vh', // Ensure it takes full height of the viewport
+                    width: '100vw',  // Ensure it takes full width of the viewport
                 }}
             />
+
 
             {/* Main Content */}
             <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-56 text-center">
                 <h1 className="hero-text text-5xl font-bold tracking-tight text-white sm:text-7xl">
-                    Hello, I'm Carlos, a <br />
+                    Hello, I'm Carlos, a <br/>
                     FullStack Web Developer!
                 </h1>
                 <p className="hero-text mt-6 text-lg leading-8 text-gray-100 sm:text-xl">

@@ -37,7 +37,7 @@ const logos = {
 
 // Skills categories for filtering
 const skillCategories = {
-    FullStack: ['React Component Example', 'Node.js HTTP Server', 'MySQL Database Query with Node.js'],
+    FullStack: ['Javascript','React Component Example', 'Node.js HTTP Server', 'MySQL Database Query with Node.js'],
     Frontend: ['React Component Example', 'CSS Flexbox Example', 'Fetching Data with React (useEffect)', 'Tailwind CSS Responsive Grid', 'Basic HTML Structure'],
     Backend: ['Node.js HTTP Server', 'MySQL Database Query with Node.js', 'JWT Authentication in Node.js', 'NPM Install Package'],
     DevOps: ['Git Commit Command', 'Git Branch Command', 'NPM Init Command', 'Ubuntu Setup'],
@@ -62,7 +62,7 @@ const Skills = ({ theme }) => {
 
     return (
         <div className={`w-full p-6 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-            <h2 className="text-3xl font-semibold mb-8">My Skills</h2>
+            <h2 className="text-3xl font-semibold mb-8">My Skills...touch card to see code samples I use for development.</h2>
 
             {/* Tabs for filtering skill categories */}
             <Tabs defaultValue="FullStack" onValueChange={setCurrentCategory}>
