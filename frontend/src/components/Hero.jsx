@@ -35,14 +35,15 @@ const Hero = () => {
             yoyo: true,
             ease: 'power1.inOut',
         });
-    }, []);
 
-    const handleGetStartedClick = () => {
-        const contactSection = document.getElementById('contact');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+        // Glimmering Border Animation
+        gsap.to('.glimmer-border', {
+            backgroundPosition: '200% center',
+            duration: 3,
+            repeat: -1,
+            ease: 'linear',
+        });
+    }, []);
 
     return (
         <div className="hero-section relative w-full px-4 pt-20 lg:px-8 text-white overflow-hidden">
@@ -54,15 +55,14 @@ const Hero = () => {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
-                    height: '100vh', // Ensure it takes full height of the viewport
-                    width: '100vw',  // Ensure it takes full width of the viewport
+                    height: '100vh',
+                    width: '100vw',
                 }}
             />
 
-
             {/* Main Content */}
             <div className="mx-auto max-w-7xl py-32 sm:py-48 lg:py-56 text-center">
-                <h1 className="hero-text text-5xl font-bold tracking-tight text-white sm:text-7xl">
+                <h1 className="hero-text glimmer-border text-5xl font-bold tracking-tight sm:text-7xl">
                     Hello, I'm Carlos, a <br/>
                     FullStack Web Developer!
                 </h1>
@@ -70,6 +70,19 @@ const Hero = () => {
                     Let me help make your vision of a website come to life, scroll down to learn more.
                 </p>
             </div>
+
+            <style jsx>{`
+                .glimmer-border {
+                    color: white;
+                    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+                    background-size: 200% auto;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    text-fill-color: transparent;
+                    -webkit-text-fill-color: transparent;
+                    -webkit-text-stroke: 4px transparent;
+                }
+            `}</style>
         </div>
     );
 };
