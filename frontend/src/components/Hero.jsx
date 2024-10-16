@@ -74,12 +74,14 @@ const Hero = () => {
             <style jsx>{`
                 .glimmer-border {
                     color: white;
-                    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+                    text-shadow:
+                        -2px -2px 0 transparent,
+                        2px -2px 0 transparent,
+                        -2px 2px 0 transparent,
+                        2px 2px 0 transparent;
+                    background-image: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
                     background-size: 200% auto;
-                    background-clip: text;
                     -webkit-background-clip: text;
-                    text-fill-color: transparent;
-                    -webkit-text-fill-color: transparent;
                     -webkit-text-stroke: 4px transparent;
                 }
             `}</style>
