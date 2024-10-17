@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
 
 const VITE_MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
@@ -12,6 +11,8 @@ const Map = () => {
     const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/streets-v12');
     const markersRef = useRef({});
 
+    // Starting from a very zoomed out position (space)
+    const spaceCenter = [0, 0]; // Approximate center of the earth
     const southwestCenter = [-107.874, 36.414]; // Centered on Four Corners
 
     const fakeHeatMapData = [
@@ -30,8 +31,8 @@ const Map = () => {
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
             style: mapStyle,
-            center: southwestCenter,
-            zoom: 6,
+            center: spaceCenter, // Start from "space"
+            zoom: 1, // Very zoomed out, simulating space view
             pitch: 45,
             bearing: -20,
         });
@@ -40,6 +41,18 @@ const Map = () => {
             map.current.resize();
             addHeatMapLayer(fakeHeatMapData);
             addPersonMarkers(fakeHeatMapData);
+
+            // Fly to the Four Corners region on map load
+            setTimeout(() => {
+                map.current.flyTo({
+                    center: southwestCenter, // Four Corners coordinates
+                    zoom: 7, // Zoom into Four Corners region
+                    speed: 1.5, // Speed of the animation
+                    curve: 1.8, // Path curve during animation
+                    easing: (t) => t, // Linear easing
+                    essential: true // Makes sure the animation happens on all devices
+                });
+            }, 2000); // Delay the flyTo by 2 seconds to let the map load
         });
     }, [mapStyle]); // Re-run effect when map style changes
 
@@ -135,15 +148,9 @@ const Map = () => {
         });
     };
 
-    const handleStyleChange = (e) => {
-        setMapStyle(e.target.value);
-    };
-
     return (
         <div className="w-full max-w-7xl mx-auto p-4 bg-gray-900 text-white">
             <div className="bg-gray-800 shadow-md p-4 mb-4 rounded-lg">
-
-
                 <button
                     onClick={handleToggleHeatMap}
                     className="w-full sm:w-auto mt-4 bg-red-600 text-white px-4 py-2 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300"
@@ -161,4 +168,5 @@ const Map = () => {
 };
 
 export default Map;
+
 
