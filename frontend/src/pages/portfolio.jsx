@@ -59,7 +59,7 @@ const Portfolio = () => {
             </section>
 
             <section className="my-10">
-                <BlogList/> theme={theme}/>
+                <BlogList theme={theme}/>
             </section>
 
 
