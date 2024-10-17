@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import {Tabs, TabsList, TabsTrigger} from "@radix-ui/react-tabs";
+import axios from 'axios'; // We'll use axios for making API calls
 
 const VITE_MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
@@ -8,12 +10,14 @@ const Map = () => {
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [showHeatMap, setShowHeatMap] = useState(true);
-    const [mapStyle, setMapStyle] = useState('mapbox://styles/mapbox/streets-v12');
+    const [showMarkers, setShowMarkers] = useState(true);
+    const [isDayMode, setIsDayMode] = useState(true); // Track day/night mode
+    const [searchQuery, setSearchQuery] = useState(''); // Search input state
     const markersRef = useRef({});
 
-    // Starting from a very zoomed out position (space)
-    const spaceCenter = [0, 0]; // Approximate center of the earth
-    const southwestCenter = [-107.874, 36.414]; // Centered on Four Corners
+    // Coordinates for Albuquerque, NM
+    const albuquerqueCenter = [-106.6504, 35.0844];
+    const zoomedOutCenter = [0, 0]; // Approximate center of the earth
 
     const fakeHeatMapData = [
         { latitude: 36.4072, longitude: -105.573, description: 'Taos, NM' },
@@ -30,11 +34,32 @@ const Map = () => {
         mapboxgl.accessToken = VITE_MAPBOX_ACCESS_TOKEN;
         map.current = new mapboxgl.Map({
             container: mapContainer.current,
-            style: mapStyle,
-            center: spaceCenter, // Start from "space"
-            zoom: 1, // Very zoomed out, simulating space view
+            style: 'mapbox://styles/mapbox/streets-v12', // Start in day mode
+            center: zoomedOutCenter, // Start from space
+            zoom: 1, // Space zoom level
             pitch: 45,
             bearing: -20,
+            projection: 'globe', // Enable globe projection for 3D
+        });
+
+        // Add navigation controls (zoom and rotation)
+        map.current.addControl(new mapboxgl.NavigationControl());
+
+        // Optionally add a geolocation control to center on user's location
+        map.current.addControl(new mapboxgl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: true
+            },
+            trackUserLocation: true,
+            showUserHeading: true
+        }));
+
+        // Optionally add fullscreen control
+        map.current.addControl(new mapboxgl.FullscreenControl());
+
+        map.current.on('style.load', () => {
+            map.current.setProjection('globe'); // Ensure globe projection
+            map.current.setPaintProperty('background', 'background-color', isDayMode ? '#87ceeb' : '#001122'); // Set appropriate globe color
         });
 
         map.current.on('load', () => {
@@ -42,19 +67,52 @@ const Map = () => {
             addHeatMapLayer(fakeHeatMapData);
             addPersonMarkers(fakeHeatMapData);
 
-            // Fly to the Four Corners region on map load
+            // Fly to Albuquerque after a delay to simulate starting from space
             setTimeout(() => {
                 map.current.flyTo({
-                    center: southwestCenter, // Four Corners coordinates
-                    zoom: 7, // Zoom into Four Corners region
-                    speed: 1.5, // Speed of the animation
-                    curve: 1.8, // Path curve during animation
-                    easing: (t) => t, // Linear easing
-                    essential: true // Makes sure the animation happens on all devices
+                    center: albuquerqueCenter, // Albuquerque coordinates
+                    zoom: 17, // Zoom closely to buildings level
+                    speed: 1.5, // Animation speed
+                    curve: 1.8, // Path curve during the animation
+                    pitch: 60, // Tilt for 3D effect
+                    bearing: -20, // Ensure bearing remains consistent
+                    essential: true // Ensures the animation runs smoothly on all devices
                 });
-            }, 2000); // Delay the flyTo by 2 seconds to let the map load
+
+                // Add 3D buildings
+                map.current.addLayer({
+                    id: '3d-buildings',
+                    source: 'composite',
+                    'source-layer': 'building',
+                    filter: ['==', 'extrude', 'true'],
+                    type: 'fill-extrusion',
+                    minzoom: 15,
+                    paint: {
+                        'fill-extrusion-color': isDayMode ? '#aaa' : '#444', // Day: lighter color, Night: darker color
+                        'fill-extrusion-height': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            15,
+                            0,
+                            16,
+                            ['get', 'height']
+                        ],
+                        'fill-extrusion-base': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            15,
+                            0,
+                            16,
+                            ['get', 'min_height']
+                        ],
+                        'fill-extrusion-opacity': 0.8 // Adjust opacity for better visibility
+                    }
+                });
+            }, 2000); // Start animation after a delay of 2 seconds
         });
-    }, [mapStyle]); // Re-run effect when map style changes
+    }, [isDayMode]); // Also trigger when day/night mode changes
 
     const addHeatMapLayer = (data) => {
         if (!map.current || !data.length) return;
@@ -121,7 +179,7 @@ const Map = () => {
                 .setPopup(popup);
 
             markersRef.current[index] = marker;
-            if (!showHeatMap) marker.addTo(map.current); // Show markers only if heatmap is off
+            if (showMarkers) marker.addTo(map.current);
         });
     };
 
@@ -135,28 +193,102 @@ const Map = () => {
                     newVisibility ? 'visible' : 'none'
                 );
             }
-            // Toggle markers based on the heatmap visibility
-            Object.values(markersRef.current).forEach(marker => {
-                if (newVisibility) {
-                    marker.remove();
-                } else {
-                    marker.addTo(map.current);
-                }
-            });
-
             return newVisibility;
         });
     };
 
+    const handleToggleMarkers = () => {
+        setShowMarkers((prev) => {
+            const newVisibility = !prev;
+            Object.values(markersRef.current).forEach(marker => {
+                if (newVisibility) {
+                    marker.addTo(map.current);
+                } else {
+                    marker.remove();
+                }
+            });
+            return newVisibility;
+        });
+    };
+
+    const handleToggleDayNight = () => {
+        if (isDayMode) {
+            map.current.setStyle('mapbox://styles/mapbox/dark-v10'); // Switch to night mode
+            map.current.once('style.load', () => {
+                map.current.setPaintProperty('background', 'background-color', '#001122'); // Night mode globe color
+                map.current.setProjection('globe');
+            });
+        } else {
+            map.current.setStyle('mapbox://styles/mapbox/light-v10'); // Switch to day mode
+            map.current.once('style.load', () => {
+                map.current.setPaintProperty('background', 'background-color', '#87ceeb'); // Day mode globe color
+                map.current.setProjection('globe');
+            });
+        }
+        setIsDayMode(!isDayMode); // Toggle the mode
+    };
+
+    // Search function using Mapbox Geocoding API
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        if (!searchQuery) return;
+        try {
+            const response = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searchQuery}.json`, {
+                params: {
+                    access_token: VITE_MAPBOX_ACCESS_TOKEN,
+                    limit: 1
+                }
+            });
+            const result = response.data.features[0];
+            if (result) {
+                const [longitude, latitude] = result.center;
+                map.current.flyTo({
+                    center: [longitude, latitude],
+                    zoom: 14, // Zoom in on the search result
+                    speed: 1.5,
+                    curve: 1.8,
+                    essential: true
+                });
+            }
+        } catch (error) {
+            console.error("Error searching location: ", error);
+        }
+    };
+
     return (
         <div className="w-full max-w-7xl mx-auto p-4 bg-gray-900 text-white">
-            <div className="bg-gray-800 shadow-md p-4 mb-4 rounded-lg">
-                <button
-                    onClick={handleToggleHeatMap}
-                    className="w-full sm:w-auto mt-4 bg-red-600 text-white px-4 py-2 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors duration-300"
-                >
-                    {showHeatMap ? 'Hide Heatmap' : 'Show Heatmap'}
+            {/* Search bar */}
+            <form onSubmit={handleSearch} className="mb-4">
+                <input
+                    type="text"
+                    placeholder="Search location..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="px-4 py-2 rounded w-full text-black"
+                />
+                <button type="submit" className="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    Search
                 </button>
+            </form>
+
+            <div className="bg-gray-800 shadow-md p-4 mb-4 rounded-lg">
+                <Tabs defaultValue="Heatmap" onValueChange={(value) => {
+                    if (value === "Heatmap") handleToggleHeatMap();
+                    if (value === "Markers") handleToggleMarkers();
+                    if (value === "DayNight") handleToggleDayNight();
+                }}>
+                    <TabsList className="flex gap-4 mb-8">
+                        <TabsTrigger value="Heatmap" className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-purple-600">
+                            Toggle Heatmap
+                        </TabsTrigger>
+                        <TabsTrigger value="Markers" className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-purple-600">
+                            Toggle Markers
+                        </TabsTrigger>
+                        <TabsTrigger value="DayNight" className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-purple-600">
+                            Toggle Day/Night
+                        </TabsTrigger>
+                    </TabsList>
+                </Tabs>
             </div>
 
             <div
@@ -168,5 +300,3 @@ const Map = () => {
 };
 
 export default Map;
-
-
