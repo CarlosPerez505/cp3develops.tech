@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { Github, Linkedin, Mail, Moon, Sun } from 'lucide-react'; // If you're using these, make sure they are installed
+import { Sun, Moon } from 'lucide-react'; // Removed unused icons
 import Hero from "../components/Hero.jsx";
 import Contact from "@/components/Contact.jsx";
 import AboutMe from "@/components/AboutMe.jsx";
@@ -18,12 +19,14 @@ const Portfolio = () => {
     const [theme, setTheme] = useState('dark');
     const [showGetStartedForm, setShowGetStartedForm] = useState(false);
 
+    // Toggle between light and dark theme
     const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
     useEffect(() => {
         document.body.className = theme;
     }, [theme]);
 
+    // Handle opening and closing the GetStartedForm
     const handleGetStartedClick = () => setShowGetStartedForm(true);
     const closeGetStartedForm = () => setShowGetStartedForm(false);
 
@@ -34,49 +37,61 @@ const Portfolio = () => {
             }`}
         >
             {/* Hero Section */}
-            <Hero/>
+            <Hero />
 
             {/* About Me Section */}
             <section className="mb-20 w-full px-4 md:px-6">
-                <AboutMe/>
+                <AboutMe />
             </section>
 
             {/* Projects Section */}
             <div className="w-full px-4 md:px-6">
-                <Projects theme={theme}/>
+                <Projects theme={theme} />
             </div>
 
             {/* Skills Section */}
             <section className="mb-20 w-full">
                 <Suspense fallback={<div>Loading skills...</div>}>
-                    <Skills theme={theme}/>
+                    <Skills theme={theme} />
                 </Suspense>
             </section>
 
             {/* Map Section */}
             <section className="my-10">
-                <MyMapComponent theme={theme}/>
+                <MyMapComponent theme={theme} />
             </section>
 
+            {/* Blog Section */}
             <section className="my-10">
-                <BlogList theme={theme}/>
+                <BlogList theme={theme} />
             </section>
-
 
             {/* Footer */}
-            <Footer/>
+            <Footer />
 
-            {/* Theme Toggle */}
-            <div className="fixed top-4 right-4">
+            {/* Theme Toggle Button */}
+            <div className="fixed bottom-4 right-4">
                 <button
                     className="p-2 rounded-full transition-colors duration-300 focus:outline-none"
                     onClick={toggleTheme}
                 >
-                    {theme === 'dark' ? <Sun className="text-yellow-500"/> : <Moon className="text-gray-500"/>}
+                    {theme === 'dark' ? (
+                        <Sun className="text-yellow-500" />
+                    ) : (
+                        <Moon className="text-gray-500" />
+                    )}
                 </button>
             </div>
+
+            {/* Get Started Form */}
+            {showGetStartedForm && (
+                <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-75 z-50">
+                    <GetStartedForm closeForm={closeGetStartedForm} />
+                </div>
+            )}
         </div>
     );
 };
 
 export default Portfolio;
+

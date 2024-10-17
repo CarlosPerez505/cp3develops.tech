@@ -284,9 +284,6 @@ const Map = () => {
                         <TabsTrigger value="Markers" className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-purple-600">
                             Toggle Markers
                         </TabsTrigger>
-                        <TabsTrigger value="DayNight" className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-purple-600">
-                            Toggle Day/Night
-                        </TabsTrigger>
                     </TabsList>
                 </Tabs>
             </div>

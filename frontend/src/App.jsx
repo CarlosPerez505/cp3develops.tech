@@ -1,15 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Portfolio from './pages/portfolio.jsx'; // Portfolio page
-import BlogList from './blog/BlogList.jsx'; // Blog list component
-import BlogPost from './blog/BlogPost.jsx'; // Individual blog post component
-import NavBar from './components/NavBar'; // Navbar component in components directory
+
+// Pages
+import Portfolio from './pages/portfolio.jsx';
+import BlogList from './blog/BlogList.jsx';
+import BlogPost from './blog/BlogPost.jsx';
+
+// Components
+import NavBar from './components/NavBar';
 
 function App() {
     return (
         <Router>
-            <div>
+            <div className="app-container">
                 {/* Add Navbar */}
                 <NavBar />
 
@@ -18,6 +22,8 @@ function App() {
                     <Route path="/" element={<Portfolio />} />
                     <Route path="/blog" element={<BlogList />} />
                     <Route path="/blog/:id" element={<BlogPost />} />
+                    {/* Optional: Add a 404 route */}
+                    <Route path="*" element={<h1>404 - Page Not Found</h1>} />
                 </Routes>
             </div>
         </Router>
