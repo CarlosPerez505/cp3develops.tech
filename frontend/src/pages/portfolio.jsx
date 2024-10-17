@@ -66,9 +66,6 @@ const Portfolio = () => {
                 <BlogList theme={theme} />
             </section>
 
-            {/* Footer */}
-            <Footer />
-
             {/* Theme Toggle Button */}
             <div className="fixed bottom-4 right-4">
                 <button
