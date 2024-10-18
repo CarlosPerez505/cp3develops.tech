@@ -1,25 +1,34 @@
-import React, { useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll'; // Import Link from react-scroll
+import React, { useState, useEffect } from 'react';
+import { Link as ScrollLink } from 'react-scroll'; // Scroll for in-page navigation
+import { Link, useLocation } from 'react-router-dom'; // For route detection
 import { Menu, Moon, Sun, X } from 'lucide-react';
 
 const NavBar = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [offset, setOffset] = useState(-20);
+    const location = useLocation(); // Detect current route
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    // Function to calculate offset for mobile vs desktop
-    const getScrollOffset = () => {
-        if (window.innerWidth <= 768) {
-            // Mobile devices - increase offset to make sure the section is fully visible
-            return -50;
-        } else {
-            // Desktop devices - small or no offset needed
-            return -20;
-        }
-    };
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 768) {
+                setOffset(-50); // Larger offset for mobile
+            } else {
+                setOffset(-20); // Smaller offset for desktop
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const isBlogPage = location.pathname.startsWith('/blog');
 
     return (
-        <nav className="bg-gray-800 p-4">
+        <nav className="bg-gray-800 p-4 sticky top-0 z-50">
             <div className="flex justify-between items-center">
                 {/* Brand Name */}
                 <h1 className="text-white text-lg font-bold">My Portfolio</h1>
@@ -33,49 +42,73 @@ const NavBar = ({ theme, toggleTheme }) => {
 
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-8 items-center">
+                    {/* Show Home Link only if on blog page */}
+                    {isBlogPage && (
+                        <li>
+                            <Link
+                                to="/"
+                                className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                            >
+                                Home
+                            </Link>
+                        </li>
+                    )}
+                    {/* Show Portfolio Links if not on the blog page */}
+                    {!isBlogPage && (
+                        <>
+                            <li>
+                                <ScrollLink
+                                    to="about"
+                                    smooth={true}
+                                    duration={500}
+                                    offset={offset}
+                                    className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                                >
+                                    About
+                                </ScrollLink>
+                            </li>
+                            <li>
+                                <ScrollLink
+                                    to="projects"
+                                    smooth={true}
+                                    duration={500}
+                                    offset={offset}
+                                    className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                                >
+                                    Projects
+                                </ScrollLink>
+                            </li>
+                            <li>
+                                <ScrollLink
+                                    to="skills"
+                                    smooth={true}
+                                    duration={500}
+                                    offset={offset}
+                                    className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                                >
+                                    Skills
+                                </ScrollLink>
+                            </li>
+                            <li>
+                                <ScrollLink
+                                    to="map"
+                                    smooth={true}
+                                    duration={500}
+                                    offset={offset}
+                                    className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                                >
+                                    Map
+                                </ScrollLink>
+                            </li>
+                        </>
+                    )}
                     <li>
-                        <ScrollLink
-                            to="about"
-                            smooth={true}
-                            duration={500}
-                            offset={getScrollOffset()} // Dynamic offset
+                        <Link
+                            to="/blog"
                             className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
                         >
-                            About
-                        </ScrollLink>
-                    </li>
-                    <li>
-                        <ScrollLink
-                            to="projects"
-                            smooth={true}
-                            duration={500}
-                            offset={getScrollOffset()} // Dynamic offset
-                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
-                        >
-                            Projects
-                        </ScrollLink>
-                    </li>
-                    <li>
-                        <ScrollLink
-                            to="skills"
-                            smooth={true}
-                            duration={500}
-                            offset={getScrollOffset()} // Dynamic offset
-                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
-                        >
-                            Skills
-                        </ScrollLink>
-                    </li>
-                    <li>
-                        <ScrollLink
-                            to="map"
-                            smooth={true}
-                            duration={500}
-                            offset={getScrollOffset()} // Dynamic offset
-                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
-                        >
-                            Map
-                        </ScrollLink>
+                            Blog
+                        </Link>
                     </li>
                     <li>
                         <button
@@ -94,53 +127,77 @@ const NavBar = ({ theme, toggleTheme }) => {
 
             {/* Mobile Menu */}
             <ul className={`md:hidden mt-4 space-y-4 ${isOpen ? 'block' : 'hidden'}`}>
+                {isBlogPage && (
+                    <li>
+                        <Link
+                            to="/"
+                            className="block text-white py-2"
+                            onClick={toggleMenu}
+                        >
+                            Home
+                        </Link>
+                    </li>
+                )}
+                {!isBlogPage && (
+                    <>
+                        <li>
+                            <ScrollLink
+                                to="about"
+                                smooth={true}
+                                duration={500}
+                                offset={offset}
+                                className="block text-white py-2"
+                                onClick={toggleMenu}
+                            >
+                                About
+                            </ScrollLink>
+                        </li>
+                        <li>
+                            <ScrollLink
+                                to="projects"
+                                smooth={true}
+                                duration={500}
+                                offset={offset}
+                                className="block text-white py-2"
+                                onClick={toggleMenu}
+                            >
+                                Projects
+                            </ScrollLink>
+                        </li>
+                        <li>
+                            <ScrollLink
+                                to="skills"
+                                smooth={true}
+                                duration={500}
+                                offset={offset}
+                                className="block text-white py-2"
+                                onClick={toggleMenu}
+                            >
+                                Skills
+                            </ScrollLink>
+                        </li>
+                        <li>
+                            <ScrollLink
+                                to="map"
+                                smooth={true}
+                                duration={500}
+                                offset={offset}
+                                className="block text-white py-2"
+                                onClick={toggleMenu}
+                            >
+                                Map
+                            </ScrollLink>
+                        </li>
+                    </>
+                )}
                 <li>
-                    <ScrollLink
-                        to="about"
-                        smooth={true}
-                        duration={500}
-                        offset={getScrollOffset()} // Dynamic offset for mobile
-                        className="block text-white py-2"
-                        onClick={toggleMenu} // Close the menu after clicking
-                    >
-                        About
-                    </ScrollLink>
-                </li>
-                <li>
-                    <ScrollLink
-                        to="projects"
-                        smooth={true}
-                        duration={500}
-                        offset={getScrollOffset()} // Dynamic offset for mobile
+                    <Link
+                        to="/blog"
                         className="block text-white py-2"
                         onClick={toggleMenu}
                     >
-                        Projects
-                    </ScrollLink>
-                </li>
-                <li>
-                    <ScrollLink
-                        to="skills"
-                        smooth={true}
-                        duration={500}
-                        offset={getScrollOffset()} // Dynamic offset for mobile
-                        className="block text-white py-2"
-                        onClick={toggleMenu}
-                    >
-                        Skills
-                    </ScrollLink>
-                </li>
-                <li>
-                    <ScrollLink
-                        to="map"
-                        smooth={true}
-                        duration={500}
-                        offset={getScrollOffset()} // Dynamic offset for mobile
-                        className="block text-white py-2"
-                        onClick={toggleMenu}
-                    >
-                        Map
-                    </ScrollLink>
+                        Blog
+                    </Link>
                 </li>
                 <li>
                     <button

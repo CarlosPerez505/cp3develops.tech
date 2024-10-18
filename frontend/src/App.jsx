@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Portfolio from './pages/Portfolio';
-import BlogList from './blog/BlogList';
-import BlogPost from './blog/BlogPost'; // Import the BlogPost component
+import BlogList from './components/BlogList.jsx';
+import BlogPost from './components/BlogPost.jsx'; // Import the BlogPost component
 import Footer from './components/Footer';
 
 function App() {
