@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Portfolio from './pages/Portfolio';
 import BlogList from './blog/BlogList';
+import BlogPost from './blog/BlogPost'; // Import the BlogPost component
 import Footer from './components/Footer';
 
 function App() {
@@ -19,18 +20,15 @@ function App() {
     return (
         <Router>
             <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
-                {/* Navbar */}
                 <NavBar theme={theme} toggleTheme={toggleTheme} />
-
-                {/* Main content container */}
                 <div className="flex-grow">
                     <Routes>
                         <Route path="/" element={<Portfolio theme={theme} />} />
                         <Route path="/blog" element={<BlogList theme={theme} />} />
+                        {/* Add route for individual blog posts */}
+                        <Route path="/blog/:id" element={<BlogPost />} /> {/* This route handles the blog post by ID */}
                     </Routes>
                 </div>
-
-                {/* Footer */}
                 <Footer />
             </div>
         </Router>
