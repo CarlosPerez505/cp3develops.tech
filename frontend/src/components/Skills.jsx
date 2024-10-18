@@ -20,7 +20,7 @@ const Skills = ({ theme }) => {
 
     return (
         <div className={`w-full p-6 sm:p-12 ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
-            <h2 className="text-3xl font-semibold mb-6 text-center">
+            <h2 className="text-3xl font-semibold mb-6 text-left">
                 My Skills...<br/>
                 Click buttons to see code samples of my journey from<br/>
                 HTML/CSS and JavaScript DOM Manipulation<br/>

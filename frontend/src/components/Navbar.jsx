@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll'; // Import Link from react-scroll
 import { Menu, Moon, Sun, X } from 'lucide-react';
 
 const NavBar = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
+
+    // Function to calculate offset for mobile vs desktop
+    const getScrollOffset = () => {
+        if (window.innerWidth <= 768) {
+            // Mobile devices - increase offset to make sure the section is fully visible
+            return -50;
+        } else {
+            // Desktop devices - small or no offset needed
+            return -20;
+        }
+    };
 
     return (
         <nav className="bg-gray-800 p-4">
@@ -23,14 +34,48 @@ const NavBar = ({ theme, toggleTheme }) => {
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-8 items-center">
                     <li>
-                        <Link to="/" className="text-white hover:text-gray-300 transition-colors duration-300">
-                            Home
-                        </Link>
+                        <ScrollLink
+                            to="about"
+                            smooth={true}
+                            duration={500}
+                            offset={getScrollOffset()} // Dynamic offset
+                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                        >
+                            About
+                        </ScrollLink>
                     </li>
                     <li>
-                        <Link to="/blog" className="text-white hover:text-gray-300 transition-colors duration-300">
-                            Blog
-                        </Link>
+                        <ScrollLink
+                            to="projects"
+                            smooth={true}
+                            duration={500}
+                            offset={getScrollOffset()} // Dynamic offset
+                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                        >
+                            Projects
+                        </ScrollLink>
+                    </li>
+                    <li>
+                        <ScrollLink
+                            to="skills"
+                            smooth={true}
+                            duration={500}
+                            offset={getScrollOffset()} // Dynamic offset
+                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                        >
+                            Skills
+                        </ScrollLink>
+                    </li>
+                    <li>
+                        <ScrollLink
+                            to="map"
+                            smooth={true}
+                            duration={500}
+                            offset={getScrollOffset()} // Dynamic offset
+                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                        >
+                            Map
+                        </ScrollLink>
                     </li>
                     <li>
                         <button
@@ -50,14 +95,52 @@ const NavBar = ({ theme, toggleTheme }) => {
             {/* Mobile Menu */}
             <ul className={`md:hidden mt-4 space-y-4 ${isOpen ? 'block' : 'hidden'}`}>
                 <li>
-                    <Link to="/" className="block text-white py-2">
-                        Home
-                    </Link>
+                    <ScrollLink
+                        to="about"
+                        smooth={true}
+                        duration={500}
+                        offset={getScrollOffset()} // Dynamic offset for mobile
+                        className="block text-white py-2"
+                        onClick={toggleMenu} // Close the menu after clicking
+                    >
+                        About
+                    </ScrollLink>
                 </li>
                 <li>
-                    <Link to="/blog" className="block text-white py-2">
-                        Blog
-                    </Link>
+                    <ScrollLink
+                        to="projects"
+                        smooth={true}
+                        duration={500}
+                        offset={getScrollOffset()} // Dynamic offset for mobile
+                        className="block text-white py-2"
+                        onClick={toggleMenu}
+                    >
+                        Projects
+                    </ScrollLink>
+                </li>
+                <li>
+                    <ScrollLink
+                        to="skills"
+                        smooth={true}
+                        duration={500}
+                        offset={getScrollOffset()} // Dynamic offset for mobile
+                        className="block text-white py-2"
+                        onClick={toggleMenu}
+                    >
+                        Skills
+                    </ScrollLink>
+                </li>
+                <li>
+                    <ScrollLink
+                        to="map"
+                        smooth={true}
+                        duration={500}
+                        offset={getScrollOffset()} // Dynamic offset for mobile
+                        className="block text-white py-2"
+                        onClick={toggleMenu}
+                    >
+                        Map
+                    </ScrollLink>
                 </li>
                 <li>
                     <button
