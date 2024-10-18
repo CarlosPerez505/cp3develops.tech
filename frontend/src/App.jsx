@@ -1,34 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Pages
-import Portfolio from './pages/portfolio.jsx';
-import BlogList from './blog/BlogList.jsx';
-import BlogPost from './blog/BlogPost.jsx';
-
-// Components
 import NavBar from './components/NavBar';
-import Footer from "@/components/Footer.jsx";
+import Portfolio from './pages/Portfolio';
+import BlogList from './blog/BlogList';
+import Footer from './components/Footer';
 
 function App() {
+    const [theme, setTheme] = useState('dark');
+
+    const toggleTheme = () => {
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+    };
+
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
+
     return (
         <Router>
-            <div className="flex flex-col min-h-screen">
-                {/* Add Navbar */}
-                <NavBar />
+            <div className={`min-h-screen flex flex-col ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
+                {/* Navbar */}
+                <NavBar theme={theme} toggleTheme={toggleTheme} />
 
-                {/* Main content area with flex-grow to fill available space */}
-                <main className="flex-grow">
+                {/* Main content container */}
+                <div className="flex-grow">
                     <Routes>
-                        <Route path="/" element={<Portfolio />} />
-                        <Route path="/blog" element={<BlogList />} />
-                        <Route path="/blog/:id" element={<BlogPost />} />
-                        {/* Optional: Add a 404 route */}
-                        <Route path="*" element={<h1 className="text-center text-xl py-6">404 - Page Not Found</h1>} />
+                        <Route path="/" element={<Portfolio theme={theme} />} />
+                        <Route path="/blog" element={<BlogList theme={theme} />} />
                     </Routes>
-                </main>
+                </div>
 
-                {/* Footer at the bottom */}
+                {/* Footer */}
                 <Footer />
             </div>
         </Router>

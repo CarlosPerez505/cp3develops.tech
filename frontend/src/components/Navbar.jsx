@@ -1,41 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Moon, Sun, X } from 'lucide-react'; // Icons for mobile menu toggle
+import { Menu, Moon, Sun, X } from 'lucide-react';
 
-const NavBar = () => {
+const NavBar = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [theme, setTheme] = useState('dark');
 
     const toggleMenu = () => setIsOpen(!isOpen);
-
-    const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
-
-    useEffect(() => {
-        document.body.className = theme;
-    }, [theme]);
 
     return (
         <nav className="bg-gray-800 p-4">
             <div className="flex justify-between items-center">
-                <h1 className="text-white text-lg">My Portfolio</h1>
+                {/* Brand Name */}
+                <h1 className="text-white text-lg font-bold">My Portfolio</h1>
+
+                {/* Mobile Menu Toggle */}
                 <div className="md:hidden">
-                    <button
-                        onClick={toggleMenu}
-                        className="text-white focus:outline-none"
-                    >
-                        {isOpen ? <X /> : <Menu />}
+                    <button onClick={toggleMenu} className="text-white focus:outline-none">
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
 
                 {/* Desktop Menu */}
-                <ul className="hidden md:flex space-x-6">
+                <ul className="hidden md:flex space-x-8 items-center">
                     <li>
-                        <Link to="/" className="text-white hover:text-gray-300">
+                        <Link to="/" className="text-white hover:text-gray-300 transition-colors duration-300">
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link to="/blog" className="text-white hover:text-gray-300">
+                        <Link to="/blog" className="text-white hover:text-gray-300 transition-colors duration-300">
                             Blog
                         </Link>
                     </li>
@@ -44,14 +37,18 @@ const NavBar = () => {
                             className="p-2 rounded-full transition-colors duration-300 focus:outline-none"
                             onClick={toggleTheme}
                         >
-                            {theme === 'dark' ? <Sun className="text-yellow-500" /> : <Moon className="text-gray-500" />}
+                            {theme === 'dark' ? (
+                                <Sun className="text-yellow-500" size={24} />
+                            ) : (
+                                <Moon className="text-gray-500" size={24} />
+                            )}
                         </button>
                     </li>
                 </ul>
             </div>
 
             {/* Mobile Menu */}
-            <ul className={`md:hidden ${isOpen ? 'block' : 'hidden'} mt-4 space-y-4`}>
+            <ul className={`md:hidden mt-4 space-y-4 ${isOpen ? 'block' : 'hidden'}`}>
                 <li>
                     <Link to="/" className="block text-white py-2">
                         Home
@@ -62,7 +59,18 @@ const NavBar = () => {
                         Blog
                     </Link>
                 </li>
-
+                <li>
+                    <button
+                        className="block text-white py-2"
+                        onClick={toggleTheme}
+                    >
+                        {theme === 'dark' ? (
+                            <Sun className="text-yellow-500" size={24} />
+                        ) : (
+                            <Moon className="text-gray-500" size={24} />
+                        )}
+                    </button>
+                </li>
             </ul>
         </nav>
     );

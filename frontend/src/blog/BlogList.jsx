@@ -1,78 +1,75 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { posts } from '@/blog/Data.jsx'; // Assuming posts data is stored in Data.jsx
 
 const BlogList = () => {
-    const posts = [
-        { id: 1, title: 'My First Blog Post' },
-        { id: 2, title: 'Learning React' },
-    ];
-
-    const postRefs = useRef([]); // Ref for all the blog post list items
+    const cardRefs = useRef([]); // Ref for storing multiple card references
 
     useEffect(() => {
-        postRefs.current.forEach((post, index) => {
+        cardRefs.current.forEach((card) => {
             const handleMouseMove = (e) => {
                 const { clientX, clientY } = e;
-                const { offsetWidth: width, offsetHeight: height } = post;
-                const centerX = post.offsetLeft + width / 2;
-                const centerY = post.offsetTop + height / 2;
+                const { offsetWidth: width, offsetHeight: height } = card;
+                const centerX = card.offsetLeft + width / 2;
+                const centerY = card.offsetTop + height / 2;
 
                 const deltaX = clientX - centerX;
                 const deltaY = clientY - centerY;
 
-                const rotateY = ((deltaX / width) * -30); // Adjust the rotation on the Y-axis
-                const rotateX = ((deltaY / height) * 30); // Adjust the rotation on the X-axis
+                // Calculate the rotation based on the mouse position
+                const rotateX = (deltaY / height) * 20; // More dramatic effect
+                const rotateY = (deltaX / width) * -20;
 
-                gsap.to(post, {
-                    rotateY,
+                gsap.to(card, {
                     rotateX,
-                    scale: 1.1, // Increase the scaling for depth
+                    rotateY,
+                    scale: 1.1, // Increased scaling effect
                     duration: 0.3,
                     ease: 'power1.out',
-                    boxShadow: '0px 20px 50px rgba(0, 0, 0, 0.8)', // Dramatic shadow for 3D effect
                 });
             };
 
             const handleMouseLeave = () => {
-                gsap.to(post, {
-                    rotateY: 0,
+                gsap.to(card, {
                     rotateX: 0,
-                    scale: 1, // Reset to original size
+                    rotateY: 0,
+                    scale: 1, // Reset to original state
                     duration: 0.5,
                     ease: 'power1.out',
-                    boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)', // Reset shadow
                 });
             };
 
-            post.addEventListener('mousemove', handleMouseMove);
-            post.addEventListener('mouseleave', handleMouseLeave);
+            // Attach event listeners
+            card.addEventListener('mousemove', handleMouseMove);
+            card.addEventListener('mouseleave', handleMouseLeave);
 
-            // Cleanup event listeners when the component unmounts
+            // Clean up event listeners on unmount
             return () => {
-                post.removeEventListener('mousemove', handleMouseMove);
-                post.removeEventListener('mouseleave', handleMouseLeave);
+                card.removeEventListener('mousemove', handleMouseMove);
+                card.removeEventListener('mouseleave', handleMouseLeave);
             };
         });
     }, []);
 
     return (
         <div className="p-6">
-            <h1 className="text-3xl font-bold mb-4">Blog</h1>
-            <ul className="space-y-4">
+            <h1 className="text-3xl font-bold mb-6 text-center">Blog Posts</h1>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: '1500px' }}>
                 {posts.map((post, index) => (
-                    <li
+                    <div
                         key={post.id}
-                        ref={(el) => (postRefs.current[index] = el)} // Attach each post to the ref
-                        className="bg-gray-800 text-white p-4 rounded-lg shadow-lg cursor-pointer transform transition-transform duration-300"
-                        style={{ perspective: '1000px' }} // Add perspective for 3D effect
+                        ref={(el) => (cardRefs.current[index] = el)} // Attach each card to the ref
+                        className="bg-gray-800 text-white p-6 rounded-lg shadow-lg cursor-pointer transform transition-transform duration-300 hover:shadow-2xl"
                     >
+                        <h2 className="text-2xl font-bold mb-4">{post.title}</h2>
+                        <p className="mb-4">{post.excerpt}</p>
                         <Link to={`/blog/${post.id}`} className="text-blue-500 hover:underline">
-                            {post.title}
+                            Read More
                         </Link>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
