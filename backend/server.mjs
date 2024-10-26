@@ -12,15 +12,15 @@ import { auth, requiredScopes } from 'express-oauth2-jwt-bearer';
 // Create an Express application
 const app = express();
 const PORT = 5000;
-const HOST = '0.0.0.0'; // This allows connections from any IP address
+const HOST = '0.0.0.0'; // Allows connections from any IP address
 
 // Check if HTTPS certificates exist
 let useHTTPS = false;
 let httpsOptions = {};
 try {
     httpsOptions = {
-        key: fs.readFileSync('./certs/server.key'),
-        cert: fs.readFileSync('./certs/server.cert')
+        key: fs.readFileSync('/path/to/your/certs/server.key'), // Ensure correct path
+        cert: fs.readFileSync('/path/to/your/certs/server.cert'), // Ensure correct path
     };
     useHTTPS = true;
 } catch (err) {
@@ -32,9 +32,15 @@ app.use(helmet());
 
 // CORS Configuration - Allow both production and localhost
 const corsOptions = {
-    origin: ['https://cp3develops.tech', 'http://localhost:5173', 'https://localhost:5173','https://wwww.cp3develops.tech'],
+    origin: [
+        'http://cp3develops.tech',
+        'https://cp3develops.tech',
+        'http://localhost:5173',
+        'https://localhost:5173',
+        'https://www.cp3develops.tech',
+    ],
     credentials: true,
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 
@@ -43,12 +49,12 @@ if (process.env.NODE_ENV === 'production') {
     const limiter = rateLimit({
         windowMs: 15 * 60 * 1000, // 15 minutes
         max: 100, // limit each IP to 100 requests per windowMs
-        message: 'Too many requests from this IP, please try again later.'
+        message: 'Too many requests from this IP, please try again later.',
     });
     app.use(limiter);
 }
 
-
+// Middleware for parsing JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
@@ -57,7 +63,7 @@ app.use(morgan('dev'));
 const jwtCheck = auth({
     audience: 'https://blog-api',
     issuerBaseURL: 'https://dev-6vwc1vuimp18pfg1.us.auth0.com',
-    tokenSigningAlg: 'RS256'
+    tokenSigningAlg: 'RS256',
 });
 
 // Middleware for checking admin permissions on /blogAdmin route
@@ -68,7 +74,7 @@ app.get('/test', (req, res) => {
     res.send('Server is working!');
 });
 
-// Public route for /blogs (no JWT required)
+// Public route for /blogs (no JWT required for testing)
 app.use('/blogs', blogRoutes);
 
 // Protected route for /blogAdmin (requires 'manage:blogs' permission)
@@ -88,5 +94,5 @@ const server = useHTTPS
     : http.createServer(app);
 
 server.listen(PORT, HOST, () => {
-    console.log(`Server is running on ${useHTTPS ? 'https' : 'http'}://cp3develops.tech`);
+    console.log(`Server is running on ${useHTTPS ? 'https' : 'http'}://cp3develops.tech:${PORT}`);
 });

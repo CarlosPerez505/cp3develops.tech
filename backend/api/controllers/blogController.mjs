@@ -11,10 +11,10 @@ export const getBlogs = async (req, res) => {
         }
         res.status(200).json(blogs);
     } catch (err) {
+        console.error('Error fetching blogs:', err); // Added error logging
         res.status(500).json({ error: 'Database error', details: err.message });
     }
 };
-
 
 // Fetch a blog post by ID
 export const getBlogById = async (req, res) => {
@@ -22,7 +22,6 @@ export const getBlogById = async (req, res) => {
 
     try {
         const [rows] = await db.query('SELECT * FROM blogs WHERE id = ?', [id]);
-
         if (rows.length === 0) {
             return res.status(404).json({ error: 'Post not found' });
         }
@@ -30,7 +29,7 @@ export const getBlogById = async (req, res) => {
         const blogPost = rows[0];
         res.status(200).json(blogPost);
     } catch (error) {
-        console.error('Error fetching blog post:', error);
+        console.error('Error fetching blog post:', error); // Added error logging
         res.status(500).json({ error: 'Database error', details: error.message });
     }
 };
@@ -62,6 +61,7 @@ export const createBlog = async (req, res) => {
             blogId: result.insertId,
         });
     } catch (err) {
+        console.error('Error creating blog:', err); // Added error logging
         res.status(500).json({ error: 'Database error', details: err.message });
     }
 };
@@ -96,31 +96,29 @@ export const updateBlog = async (req, res) => {
 
         res.status(200).json({ message: 'Blog updated successfully' });
     } catch (err) {
+        console.error('Error updating blog:', err); // Added error logging
         res.status(500).json({ error: 'Database error', details: err.message });
     }
 };
-
-
 
 // Delete a blog by ID
 export const deleteBlog = async (req, res) => {
     const { id } = req.params;
 
-    try {
-        if (!id) {
-            return res.status(400).json({ error: 'Blog ID is required' });
-        }
+    if (!id) {
+        return res.status(400).json({ error: 'Blog ID is required' });
+    }
 
+    try {
         const [result] = await db.query('DELETE FROM blogs WHERE id = ?', [id]);
 
         if (result.affectedRows === 0) {
             return res.status(404).json({ error: 'Blog not found' });
         }
 
-        res.json({ message: 'Blog deleted successfully' });
+        res.status(200).json({ message: 'Blog deleted successfully' });
     } catch (err) {
+        console.error('Error deleting blog:', err); // Added error logging
         res.status(500).json({ error: 'Database error', details: err.message });
     }
 };
-
-

@@ -23,6 +23,7 @@ services:
       DATABASE_USER: root
       DATABASE_PASSWORD: blog
       DATABASE_NAME: blog_db
+      NODE_ENV: development  # Set environment variable
     ports:
       - "5000:5000"
     volumes:
