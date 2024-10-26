@@ -1,0 +1,33 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "nodemon server.mjs",
+    "build": "docker build -t backend-image .",
+    "docker:start": "docker run -p 5000:5000 backend-image",
+    "docker:compose": "docker-compose up --build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "express-jwt": "^8.4.1",
+    "express-oauth2-jwt-bearer": "^1.6.0",
+    "express-openid-connect": "^2.17.1",
+    "express-rate-limit": "^7.4.1",
+    "helmet": "^8.0.0",
+    "jwks-rsa": "^3.1.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.48.0",
+    "moment": "^2.30.1",
+    "nodemon": "^2.0.22"
+  }
+}
