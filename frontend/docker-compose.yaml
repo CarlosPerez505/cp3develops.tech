@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .  # Build from the current frontend directory
+    container_name: frontend_container
+    restart: always
+    ports:
+      - "3000:80"  # Expose port 80 inside the container to 3000 on the host
+    volumes:
+      - ./dist:/usr/share/nginx/html  # Map the build directory to Nginx
+    networks:
+      - frontend_network
+
+networks:
+  frontend_network:

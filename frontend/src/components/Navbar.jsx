@@ -42,7 +42,6 @@ const NavBar = ({ theme, toggleTheme }) => {
 
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex space-x-8 items-center">
-                    {/* Show Home Link only if on blog page */}
                     {isBlogPage && (
                         <li>
                             <Link
@@ -53,7 +52,6 @@ const NavBar = ({ theme, toggleTheme }) => {
                             </Link>
                         </li>
                     )}
-                    {/* Show Portfolio Links if not on the blog page */}
                     {!isBlogPage && (
                         <>
                             <li>
@@ -108,6 +106,15 @@ const NavBar = ({ theme, toggleTheme }) => {
                             className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
                         >
                             Blog
+                        </Link>
+                    </li>
+                    {/* Add Login Link */}
+                    <li>
+                        <Link
+                            to="/login"
+                            className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer"
+                        >
+                            Login
                         </Link>
                     </li>
                     <li>
@@ -197,6 +204,16 @@ const NavBar = ({ theme, toggleTheme }) => {
                         onClick={toggleMenu}
                     >
                         Blog
+                    </Link>
+                </li>
+                {/* Add Mobile Login Link */}
+                <li>
+                    <Link
+                        to="/login"
+                        className="block text-white py-2"
+                        onClick={toggleMenu}
+                    >
+                        Login
                     </Link>
                 </li>
                 <li>
