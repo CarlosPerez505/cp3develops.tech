@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { PlusCircle, Pencil, Trash2 } from 'lucide-react';
-import * as Dialog from '@radix-ui/react-dialog';
 
 // Base components remain the same
 const Input = React.forwardRef(({ className = '', ...props }, ref) => {
@@ -53,16 +52,18 @@ const AdminPage = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
-    const [updateKey, setUpdateKey] = useState(0); // Add this to force re-render when needed
+    const [updateKey, setUpdateKey] = useState(0);
+
+    const API_URL = import.meta.env.VITE_API_URL; // Use environment variable for API URL
 
     useEffect(() => {
         fetchBlogs();
-    }, [updateKey]); // Add updateKey as a dependency
+    }, [updateKey]);
 
     const fetchBlogs = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch('http://localhost:5000/blogs');
+            const response = await fetch(`${API_URL}/blogs`);
             if (!response.ok) throw new Error('Failed to fetch blogs');
             const data = await response.json();
             setBlogs(data || []);
@@ -84,7 +85,7 @@ const AdminPage = () => {
         setIsLoading(true);
         setError('');
         try {
-            const response = await fetch('http://localhost:5000/blogs', {
+            const response = await fetch(`${API_URL}/blogs`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -111,7 +112,7 @@ const AdminPage = () => {
         setIsLoading(true);
         setError('');
         try {
-            const response = await fetch(`http://localhost:5000/blogs/${id}`, {
+            const response = await fetch(`${API_URL}/blogs/${id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -137,7 +138,7 @@ const AdminPage = () => {
 
         setIsLoading(true);
         try {
-            const response = await fetch(`http://localhost:5000/blogs/${id}`, {
+            const response = await fetch(`${API_URL}/blogs/${id}`, {
                 method: 'DELETE'
             });
 
@@ -153,7 +154,6 @@ const AdminPage = () => {
         }
     };
 
-    // Rest of the component remains the same...
     const resetForm = () => {
         setFormData({
             title: '',
@@ -194,7 +194,6 @@ const AdminPage = () => {
         return preview.substring(0, 100).trim() + '...';
     };
 
-    // JSX remains the same...
     return (
         <div className="min-h-screen bg-gray-900 text-gray-100">
             <div className="mx-auto max-w-3xl p-4">
@@ -223,6 +222,7 @@ const AdminPage = () => {
                             placeholder="Enter blog title"
                             value={formData.title}
                             onChange={handleChange}
+                            required
                         />
 
                         <Textarea
@@ -231,6 +231,7 @@ const AdminPage = () => {
                             value={formData.content}
                             onChange={handleChange}
                             className="min-h-[150px]"
+                            required
                         />
 
                         <div className="grid gap-4 sm:grid-cols-2">
@@ -264,7 +265,16 @@ const AdminPage = () => {
                                 onClick={isEditing ? () => updateBlog(formData.id) : createBlog}
                                 disabled={isLoading}
                             >
-                                {isLoading ? 'Processing...' : isEditing ? 'Update Post' : 'Create Post'}
+                                {isLoading ? (
+                                    <span className="flex items-center gap-2">
+                                        <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                                        </svg>
+                                        Processing...
+                                    </span>
+                                ) : (
+                                    isEditing ? 'Update Post' : 'Create Post'
+                                )}
                             </Button>
                         </div>
                     </div>
