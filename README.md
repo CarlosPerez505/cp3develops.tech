@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Carlos Perez - Portfolio
 
 Welcome to my portfolio! I'm Carlos Perez, a full-stack developer passionate about building impactful projects and solving real-world problems through technology.
@@ -54,3 +55,6 @@ I'm continuously expanding my knowledge and skills, and I'm currently focusing o
 ---
 
 Thank you for visiting my portfolio! Feel free to reach out for any collaboration opportunities or questions.
+=======
+# cp3develops.tech
+>>>>>>> 3c20f25137dcfe28bdc40141dfcb56616f1200d7
